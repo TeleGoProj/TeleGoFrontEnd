@@ -9,6 +9,9 @@ import {TranslateModule, TranslateLoader, TranslateService, LangChangeEvent} fro
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClientModule, HttpClient} from '@angular/common/http';
 import { SearchByPhoneComponent } from './search-by-phone/search-by-phone.component';
+import { LanguageComponent } from './components/language/language.component';
+import { RtlLanguageComponent } from './components/language/rtl-language/rtl-language.component';
+import { LtrLanguageComponent } from './components/language/ltr-language/ltr-language.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -20,7 +23,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    SearchByPhoneComponent
+    SearchByPhoneComponent,
+    LanguageComponent,
+    RtlLanguageComponent,
+    LtrLanguageComponent
   ],
   imports: [
     BrowserModule,
