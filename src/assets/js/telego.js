@@ -22,7 +22,7 @@ function makeSpanEditable(el){
 function makeRowEditable(tr){
 	var span = tr.find('span');
 	var input = tr.find('input');
-	
+
 	span.hide();
 	input.fadeIn( "slow", function() {
     // Animation complete
@@ -34,17 +34,17 @@ function makeRowEditable(tr){
 
 	input.each(function( index ) {
 	$( this ).val(dic[ index ]) ;
-});	
+});
 }
 
 
 function submitEditedInputText(el){
 	var td = jQuery(el).parent();
 	var tr = td.parent();
-	
+
 	var span = tr.find('span');
 	var input = tr.find('input');
-	
+
 	input.hide();
 	span.fadeIn( "slow", function() {
     // Animation complete
@@ -56,7 +56,7 @@ function submitEditedInputText(el){
 
 	span.each(function( index ) {
 	$( this ).text(dic[ index ]) ;
-});	
+});
 }
 
 
@@ -64,13 +64,13 @@ function deleteRow(el){
 	var confirmed = checkConfirmation();
 	if(!confirmed)
 		return;
-	
+
 	var td = jQuery(el).parent();
 	var tr = td.parent();
-	tr.fadeOut('slow', 
-        function(){ 
-            tr.remove();                    
-        }); 
+	tr.fadeOut('slow',
+        function(){
+            tr.remove();
+        });
 }
 
 function addRow(table_id){
@@ -87,7 +87,7 @@ function checkConfirmation(){
 	var confirmationMessage = 'Are you Sure you want to proceed?';
 	if(lang == 'ar')
 		confirmationMessage = 'هل انت متأكد من انك تريد ان تكمل؟';
-		
+
 	var confirmed = confirm(confirmationMessage);
 	return confirmed;
 }

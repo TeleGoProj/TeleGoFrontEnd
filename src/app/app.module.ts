@@ -8,10 +8,10 @@ import {FooterComponent} from './components/footer/footer.component';
 import {TranslateModule, TranslateLoader, TranslateService, LangChangeEvent} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClientModule, HttpClient} from '@angular/common/http';
-import { SearchByPhoneComponent } from './search-by-phone/search-by-phone.component';
+import { SearchByPhoneComponent } from './components/search-by-phone/search-by-phone.component';
 import { LanguageComponent } from './components/language/language.component';
-import { RtlLanguageComponent } from './components/language/rtl-language/rtl-language.component';
-import { LtrLanguageComponent } from './components/language/ltr-language/ltr-language.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomePageComponent } from './components/home-page/home-page.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -25,8 +25,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FooterComponent,
     SearchByPhoneComponent,
     LanguageComponent,
-    RtlLanguageComponent,
-    LtrLanguageComponent
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +37,8 @@ export function HttpLoaderFactory(http: HttpClient) {
         useFactory: HttpLoaderFactory,
         deps: [HttpClient]
       }
-    })
+    }),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

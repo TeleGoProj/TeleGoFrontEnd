@@ -1,3 +1,13 @@
 {
-  "HELLO": "hello how are you {{value}} ?"
+  "HEADER": {
+    "LOGIN": "Login",
+    "PACKAGES": "Packages",
+    "PAGES": "Pages",
+    "ABOUT": "About",
+    "CONTACT": "Contact"
+  },
+  "FOOTER": {
+    "COPYRIGHT": "Copyright",
+    "ALL_RIGHTS_RESERVED": "All rights reserved | This template is made with"
+  }
 }

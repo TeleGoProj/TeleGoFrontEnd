@@ -1,3 +1,13 @@
 {
-  "HELLO": " {{value}} اهلا كيف حالك يا"
+  "HEADER": {
+    "LOGIN": "دخول",
+    "PACKAGES": "العروض",
+    "PAGES": "صفحات",
+    "ABOUT": "عنا",
+    "CONTACT": "تواصل"
+  },
+  "FOOTER": {
+    "COPYRIGHT": "حقوق",
+    "ALL_RIGHTS_RESERVED": "جميع حقوق التيمبلت تعود الي"
+  }
 }
