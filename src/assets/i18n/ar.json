@@ -9,5 +9,10 @@
   "FOOTER": {
     "COPYRIGHT": "حقوق",
     "ALL_RIGHTS_RESERVED": "جميع حقوق التيمبلت تعود الي"
+  },
+  "SEARCH": {
+    "PHONE": "تليفون",
+    "NAME": "الإسم",
+    "SEARCH": "بحث"
   }
 }

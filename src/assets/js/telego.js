@@ -5,6 +5,7 @@ $( document ).ready(function() {
 function init(){
 $("#closed-header-menu").hide();
 $(".telego-editable-input").hide();
+
 }
 
 function toggleBanner(){
@@ -91,3 +92,4 @@ function checkConfirmation(){
 	var confirmed = confirm(confirmationMessage);
 	return confirmed;
 }
+

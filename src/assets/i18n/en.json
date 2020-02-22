@@ -9,5 +9,10 @@
   "FOOTER": {
     "COPYRIGHT": "Copyright",
     "ALL_RIGHTS_RESERVED": "All rights reserved | This template is made with"
+  },
+  "SEARCH": {
+    "PHONE": "Phone",
+    "NAME": "Name",
+    "SEARCH": "Search"
   }
 }
