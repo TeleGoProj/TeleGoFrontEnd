@@ -4,7 +4,8 @@
     "PACKAGES": "العروض",
     "PAGES": "صفحات",
     "ABOUT": "عنا",
-    "CONTACT": "تواصل"
+    "CONTACT": "تواصل",
+    "ADMIN" : "ادمن"
   },
   "FOOTER": {
     "COPYRIGHT": "حقوق",
@@ -13,6 +14,18 @@
   "SEARCH": {
     "PHONE": "تليفون",
     "NAME": "الإسم",
-    "SEARCH": "بحث"
+    "SEARCH": "بحث",
+    "CONTACT": "إتصل"
+  },
+  "HOME_PAGE":{
+    "AMAZING_SEARCH": "بحث متميز",
+    "SEARCH_FOR_PHONES": "ابحث عن تليفون",
+    "FIND_PEOPLE_FEATURES_AND_LOCATIONS": "ابحث عن اشخاص او صفات او اماكن",
+    "DELIVER_FOR_NEAREST_DROP_POINT" : "توصيل لاقرب نقطة منك",
+    "FINDING_PEOPLE_FEATURES_LOCATIONS_AND_ALSO_DELIVERY_SERVICES_REQUIRES_REGISTRATION_FIRST": "البحث عن اشخاص او صفات او التوصيل لاقرب نقطة منك يتطلب التسجيل اولا",
+    "MOST_AMAZING": "الاكثر تميزا",
+    "SEARCH": "البحث",
+    "TRY_IT_NOW" : "!جربه الان"
+
   }
 }

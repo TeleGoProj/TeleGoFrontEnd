@@ -4,7 +4,8 @@
     "PACKAGES": "Packages",
     "PAGES": "Pages",
     "ABOUT": "About",
-    "CONTACT": "Contact"
+    "CONTACT": "Contact",
+    "ADMIN" : "Admin"
   },
   "FOOTER": {
     "COPYRIGHT": "Copyright",
@@ -13,6 +14,19 @@
   "SEARCH": {
     "PHONE": "Phone",
     "NAME": "Name",
-    "SEARCH": "Search"
+    "SEARCH": "Search",
+    "CONTACT": "Contact"
+  },
+  "HOME_PAGE":{
+    "AMAZING_SEARCH": "Amazing Search",
+    "SEARCH_FOR_PHONES": "Search for phones",
+    "FIND_PEOPLE_FEATURES_AND_LOCATIONS": "Find people, features and locations",
+    "DELIVER_FOR_NEAREST_DROP_POINT" : "Deliver for nearest drop-point",
+    "FINDING_PEOPLE_FEATURES_LOCATIONS_AND_ALSO_DELIVERY_SERVICES_REQUIRES_REGISTRATION_FIRST": "Finding people/features/locations and also delivery services requires registration first",
+    "MOST_AMAZING": "Most amazing",
+    "SEARCH": "Search",
+    "TRY_IT_NOW" : "try it now!"
+
+
   }
 }
