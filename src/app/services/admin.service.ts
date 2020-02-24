@@ -1,29 +1,21 @@
+import { Observable } from 'rxjs';
 import { Country } from './../model/Country';
 import { LookupsService } from './lookups.service';
 import { Injectable } from '@angular/core';
+import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { AdminLookupsResponse } from '../model/response/AdminLookupsResponse';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AdminService {
+export class AdminService implements Resolve<Observable<AdminLookupsResponse>>{
 
   countries = new Array<Country>();
   message: string;
 
   constructor(private lookupsService: LookupsService) { }
 
-  loadData(){
-    this.lookupsService.getCountries().subscribe(
-      (next) => {
-        this.countries = next;
-      },
-      (error) => {
-        if (error.status === 402) {
-          this.message  = 'Sorry - you need to pay to use this application. ';
-        } else {
-            this.message = 'Sorry - something went wrong, please contact support.';
-          }
-        }
-    );
+  resolve() {
+    return this.lookupsService.getLookups();
   }
 }

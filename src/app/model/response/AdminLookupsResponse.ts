@@ -1,4 +1,3 @@
-import { PhoneUser } from './../PhoneUser';
 import { Logistics } from './../Logistics';
 import { LandlinePhone } from './../LandlinePhone';
 import { Feature } from './../Feature';
@@ -9,13 +8,12 @@ import { Area } from './../Area';
 import { Country } from './../Country';
 
 export class AdminLookupsResponse extends Response{
-  lookupsCountries	= new Array<Country> ();
-  lookupsAreas	= new Array<Area> ();
-  lookupsBoxes	= new Array<Box> ();
-  lookupsCabins	= new Array<Cabin> ();
-  lookupsCities	= new Array<City> ();
-  lookupsFeatures	= new Array<Feature> ();
-  lookupsLandlinePhones	= new Array<LandlinePhone> ();
-  lookupslogistics	= new Array<Logistics> ();
-  lookupsPhoneUsers	= new Array<PhoneUser> ();
+  countries	= new Array<Country> ();
+  cities	= new Array<City> ();
+  areas	= new Array<Area> ();
+  cabins	= new Array<Cabin> ();
+  boxes	= new Array<Box> ();
+  landlinePhones	= new Array<LandlinePhone> ();
+  features	= new Array<Feature> ();
+  logistics	= new Array<Logistics> ();
 }

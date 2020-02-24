@@ -21,7 +21,6 @@ export class LanguageComponent implements OnInit {
         this.changeLanguage(params.lang);
       }
     );
-    console.log('selectedLang is : ', this.selectedLang);
     translate.setDefaultLang('en');
     translate.onLangChange.subscribe((event: LangChangeEvent) => {
       this.translate.use(this.selectedLang);

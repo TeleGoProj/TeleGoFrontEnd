@@ -1,5 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -12,6 +13,10 @@ import { SearchByPhoneComponent } from './components/search-by-phone/search-by-p
 import { LanguageComponent } from './components/language/language.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomePageComponent } from './components/home-page/home-page.component';
+import { AdminLookupComponent } from './components/admin/lookups/admin-lookup/admin-lookup.component';
+import { AdminLookupCountryComponent } from './components/admin/lookups/admin-lookup-country/admin-lookup-country.component';
+import { AdminLookupCityComponent } from './components/admin/lookups/admin-lookup-city/admin-lookup-city.component';
+
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -25,12 +30,16 @@ export function HttpLoaderFactory(http: HttpClient) {
     FooterComponent,
     SearchByPhoneComponent,
     LanguageComponent,
-    HomePageComponent
+    HomePageComponent,
+    AdminLookupComponent,
+    AdminLookupCountryComponent,
+    AdminLookupCityComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    FormsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
