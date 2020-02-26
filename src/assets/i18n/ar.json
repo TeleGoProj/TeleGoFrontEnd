@@ -26,6 +26,11 @@
     "MOST_AMAZING": "الاكثر تميزا",
     "SEARCH": "البحث",
     "TRY_IT_NOW" : "!جربه الان"
-
+  },
+  "MESSAGES":{
+    "CONFIRM_DELETE_ITEM": "هل انت متأكد من رغبتك في حذف هذا العنصر؟"
+  },
+  "VALIDATIONS":{
+    "REQUIRED": "عنصر مطلوب"
   }
 }

@@ -9,7 +9,7 @@
         <div class="pt-3"></div>
 
         <button class="btn btn-secondary" (click)="addRow()"><i class="fa fa-plus"></i></button>
-        <button class="btn btn-success mx-5" (click)="submitCountries()"><i class="fa fa-check"></i></button>
+        <button class="btn btn-success mx-5" (click)="submitAllCountries()"><i class="fa fa-check"></i></button>
 
         <div class="pt-3"></div>
         <table id="countries-table" class="table table-striped table-hover table-responsive-lg">
@@ -27,24 +27,30 @@
             <tr *ngFor="let country of countries" [@fadeInOut]>
               <td>
                 <span [hidden]="country.markedAsEditingNow">{{country.nameEn}}</span>
-                <input type="text" [hidden]="!country.markedAsEditingNow" [(ngModel)]="country.nameEn" class="form-control" [@fadeInOut]/>
+                <input type="text" [hidden]="!country.markedAsEditingNow" [(ngModel)]="country.tempEiditingCountry.nameEn"
+                class="form-control" [@fadeInOut] required #nameEn="ngModel"/>
+                <div *ngIf="nameEn.invalid && nameEn.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
               </td>
               <td>
                 <span [hidden]="country.markedAsEditingNow">{{country.nameAr}}</span>
-                <input type="text"  [hidden]="!country.markedAsEditingNow" [(ngModel)]="country.nameAr" class="form-control" [@fadeInOut]/>
+                <input type="text"  [hidden]="!country.markedAsEditingNow" [(ngModel)]="country.tempEiditingCountry.nameAr"
+                class="form-control" [@fadeInOut] required #nameAr="ngModel"/>
+                <div *ngIf="nameAr.invalid && nameAr.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
               </td>
               <td>
                 <span [hidden]="country.markedAsEditingNow">{{country.code}}</span>
-                <input type="text"  [hidden]="!country.markedAsEditingNow" [(ngModel)]="country.code" class="form-control" [@fadeInOut]/>
+                <input type="text"  [hidden]="!country.markedAsEditingNow" [(ngModel)]="country.tempEiditingCountry.code"
+                class="form-control" [@fadeInOut] required #code="ngModel"/>
+                <div *ngIf="code.invalid && code.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
               </td>
               <td>
-                <i class="fas fa-pencil-alt" id="dd" aria-hidden="true" style="cursor:pointer;" onclick="makeSpanEditable(this)"></i>
+                <i class="fas fa-pencil-alt" id="dd" aria-hidden="true" style="cursor:pointer;" (click)="editCountry(country)"></i>
               </td>
               <td>
-                <i class="fa fa-check" aria-hidden="true" style="cursor:pointer;" onclick="submitEditedInputText(this);"></i>
+                <i class="fa fa-check" aria-hidden="true" style="cursor:pointer;" (click)="applyEditedCountry(country)"></i>
               </td>
               <td>
-                <i class="fa fa-trash" aria-hidden="true" style="cursor:pointer;" onclick="deleteRow(this)"></i>
+                <i class="fa fa-trash" aria-hidden="true" style="cursor:pointer;" (click)="deleteCountry(country)"></i>
               </td>
             </tr>
           </tbody>

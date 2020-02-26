@@ -26,3 +26,14 @@
 .arabic{
   text-align: right;
 }
+/* input.ng-touched.ng-invalid{
+  border-color:#dc3545;
+} */
+
+input.ng-invalid{
+  border-color:#dc3545;
+}
+
+input.ng-touched.ng-valid{
+  border-color:#28a745;
+}

@@ -15,7 +15,7 @@ export class LookupsService {
     const adminLookupsResponse = new AdminLookupsResponse();
 
     const countries = new Array<Country>();
-    const egypt = new Country(1, 'Egypt', 'Misr', 'EG', null);
+    const egypt = new Country(new Country(), 1, 'Egypt', 'Misr', 'EG', null);
     // const france = new Country(1, 'France', 'Faransa', 'FR', null);
     // const usa = new Country(1, 'USA', 'Amrika', 'USA', null);
     // const libya = new Country(1, 'Libya', 'Liby', 'Ly', null);
