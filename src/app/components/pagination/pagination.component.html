@@ -3,9 +3,8 @@
     <div class="btn-group">
 
       <ngb-pagination aria-label="{{'GENERAL.PAGINATION' | translate}}"
-      [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
-      [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"
-      ></ngb-pagination>
+      [collectionSize]="collection.length" [(page)]="page" [pageSize]="pageSize"
+      [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"></ngb-pagination>
 
       <div class="px-2"></div>
 
@@ -29,6 +28,8 @@
 
 <hr>
 
-<pre>{{'GENERAL.CURRENT_PAGE' | translate}}: {{page}}</pre>
-
-
+<div class="row">
+    <div>{{'GENERAL.CURRENT_PAGE' | translate}}: {{page}}</div>
+    <div class="px-2"></div>
+    <div>{{'GENERAL.CURRENT_PAGE' | translate}}: {{collection.length}}</div>
+</div>

@@ -11,7 +11,7 @@ export class PaginationComponent implements OnInit {
   page = 1;
   pageSize = 10;
   @Input()
-  collectionSize = 1;
+  collection : Array<any>;
 
   constructor() { }
 

@@ -2,13 +2,12 @@ import { PaginationComponent } from './pagination.component';
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'paginate'
+  name: 'paginate',
+  pure: false
 })
 export class PaginatePipe implements PipeTransform {
 
   transform(value: any, ...args: any[]): any {
-    console.log('value', value);
-    console.log('args', args);
     if (value && args) {
       const paginationComponent = args[1] as PaginationComponent;
       const pageSize = 10;
