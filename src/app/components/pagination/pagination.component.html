@@ -1,0 +1,34 @@
+<div class="row">
+  <div class="col">
+    <div class="btn-group">
+
+      <ngb-pagination aria-label="{{'GENERAL.PAGINATION' | translate}}"
+      [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
+      [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"
+      ></ngb-pagination>
+
+      <div class="px-2"></div>
+
+      <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        {{pageSize}}
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item cursor-hand" (click)="setPageSize(1);">1</a>
+        <a class="dropdown-item cursor-hand" (click)="setPageSize(5);">5</a>
+        <a class="dropdown-item cursor-hand" (click)="setPageSize(10);">10</a>
+        <a class="dropdown-item cursor-hand" (click)="setPageSize(15);">15</a>
+        <a class="dropdown-item cursor-hand" (click)="setPageSize(20);">20</a>
+        <a class="dropdown-item cursor-hand" (click)="setPageSize(25);">25</a>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+
+<hr>
+
+<pre>{{'GENERAL.CURRENT_PAGE' | translate}}: {{page}}</pre>
+
+

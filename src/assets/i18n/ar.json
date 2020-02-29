@@ -32,5 +32,9 @@
   },
   "VALIDATIONS":{
     "REQUIRED": "عنصر مطلوب"
+  },
+  "GENERAL":{
+    "PAGINATION": "ترقيم",
+    "CURRENT_PAGE": "الصفحة الحالية"
   }
 }

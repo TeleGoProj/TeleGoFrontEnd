@@ -19,6 +19,7 @@ import { trigger, state, transition, style, animate } from '@angular/animations'
 export class AdminLookupCountryComponent implements OnInit {
 
   @Input() countries: Array<Country>;
+
   constructor(private translate: TranslateService) { }
 
   ngOnInit() {

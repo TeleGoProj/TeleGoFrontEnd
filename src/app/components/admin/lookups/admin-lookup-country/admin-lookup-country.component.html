@@ -24,9 +24,9 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let country of countries" [@fadeInOut]>
+            <tr *ngFor="let country of countries | paginate: countriesPaination.page : countriesPaination" [@fadeInOut]>
               <td>
-                <span [hidden]="country.markedAsEditingNow">{{country.nameEn}}</span>
+                <span [hidden]="country.markedAsEditingNow">{{country.countryId}}</span>
                 <input type="text" [hidden]="!country.markedAsEditingNow" [(ngModel)]="country.tempEiditingCountry.nameEn"
                 class="form-control" [@fadeInOut] required #nameEn="ngModel"/>
                 <div *ngIf="nameEn.errors?.required && nameEn.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
@@ -55,6 +55,9 @@
             </tr>
           </tbody>
         </table>
+
+        <app-pagination [collectionSize]="countries.length" #countriesPaination></app-pagination>
+
         </div>
       </div>
     </div>

@@ -20,7 +20,11 @@ export class LookupsService {
     // const usa = new Country(1, 'USA', 'Amrika', 'USA', null);
     // const libya = new Country(1, 'Libya', 'Liby', 'Ly', null);
 
-    countries.push(egypt);
+
+    for (let i = 0; i < 53; i++) {
+      const c = new Country(new Country(), i + 1, 'Egypt', 'Misr', 'EG', null);
+      countries.push(c);
+    }
     // countries.push(france);
     // countries.push(usa);
     // countries.push(libya);

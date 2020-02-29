@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {NgModule, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 import {AppRoutingModule} from './app-routing.module';
@@ -16,6 +16,9 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { AdminLookupComponent } from './components/admin/lookups/admin-lookup/admin-lookup.component';
 import { AdminLookupCountryComponent } from './components/admin/lookups/admin-lookup-country/admin-lookup-country.component';
 import { AdminLookupCityComponent } from './components/admin/lookups/admin-lookup-city/admin-lookup-city.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { PaginationComponent } from './components/pagination/pagination.component';
+import { PaginatePipe } from './components/pagination/paginate.pipe';
 
 
 // AoT requires an exported function for factories
@@ -33,7 +36,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     HomePageComponent,
     AdminLookupComponent,
     AdminLookupCountryComponent,
-    AdminLookupCityComponent
+    AdminLookupCityComponent,
+    PaginationComponent,
+    PaginatePipe
   ],
   imports: [
     BrowserModule,
@@ -47,10 +52,12 @@ export function HttpLoaderFactory(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgbModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule {
 }

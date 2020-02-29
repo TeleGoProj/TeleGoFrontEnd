@@ -32,5 +32,9 @@
   },
   "VALIDATIONS":{
     "REQUIRED": "This is required"
+  },
+  "GENERAL":{
+    "PAGINATION": "Pagination",
+    "CURRENT_PAGE": "Current page"
   }
 }
