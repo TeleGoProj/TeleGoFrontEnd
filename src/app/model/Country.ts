@@ -13,13 +13,15 @@ export class Country {
 
   tempEiditingCountry: Country;
 
-  constructor(tempEiditingCountry?: Country, countryId?: number, nameEn?: string, nameAr?: string, code?: string, cities?: Array<City>) {
-    this.tempEiditingCountry = tempEiditingCountry;
-    this.countryId = countryId;
-    this.nameEn = nameEn;
-    this.nameAr = nameAr;
-    this.code = code;
-    this.cities = cities;
+  static fromHttp(httpResponse: Country) {
+    const country = new Country();
+    country.countryId = httpResponse.countryId;
+    country.nameEn = httpResponse.nameEn;
+    country.nameAr = httpResponse.nameAr;
+    country.code = httpResponse.code;
+    country.cities = httpResponse.cities;
+    country.tempEiditingCountry = new Country();
+    return country;
   }
 
   clone(source: Country) {

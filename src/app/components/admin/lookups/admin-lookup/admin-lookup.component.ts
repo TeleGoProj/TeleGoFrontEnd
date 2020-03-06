@@ -17,10 +17,8 @@ export class AdminLookupComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
-
-    const adminLookupsResponse = this.route.snapshot.data['adminLookupsResponse'];
+    const adminLookupsResponse = this.route.snapshot.data.adminLookupsResponse;
     this.countries = adminLookupsResponse.countries;
     this.cities = adminLookupsResponse.cities;
   }
-
 }

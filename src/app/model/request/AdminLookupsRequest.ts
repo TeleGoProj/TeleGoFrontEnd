@@ -8,31 +8,14 @@ import { Box } from './../Box';
 import { Area } from './../Area';
 import { Country } from './../Country';
 
-export class AdminLookupsRequest extends Request {
-  updatedCountries = new Array<Country>();
-  deletedCountries = new Array<Country>();
-
-  updatedAreas = new Array<Area>();
-  deletedAreas = new Array<Area>();
-
-  updatedBoxes = new Array<Box>();
-  deletedBoxes = new Array<Box>();
-
-  updatedCabins = new Array<Cabin>();
-  deletedCabins = new Array<Cabin>();
-
-  updatedCities = new Array<City>();
-  deletedCities = new Array<City>();
-
-  updatedFeatures = new Array<Feature>();
-  deletedFeatures = new Array<Feature>();
-
-  updatedLandPhone = new Array<LandlinePhone>();
-  deletedLandlinePhones = new Array<LandlinePhone>();
-
-  updatedLogistics = new Array<Logistics>();
-  deletedLogistics = new Array<Logistics>();
-
-  updatedPhoneUsers = new Array<PhoneUser>();
-  deletedPhoneUsers = new Array<PhoneUser>();
+export class AdminLookupsRequest {
+  countries	= new Array<Country> ();
+  deletedCountries	= new Array<Country> ();
+  cities	= new Array<City> ();
+  areas	= new Array<Area> ();
+  cabins	= new Array<Cabin> ();
+  boxes	= new Array<Box> ();
+  landlinePhones	= new Array<LandlinePhone> ();
+  features	= new Array<Feature> ();
+  logistics	= new Array<Logistics> ();
 }

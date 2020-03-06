@@ -7,7 +7,7 @@ import { Box } from './../Box';
 import { Area } from './../Area';
 import { Country } from './../Country';
 
-export class AdminLookupsResponse extends Response{
+export class AdminLookupsResponse {
   countries	= new Array<Country> ();
   cities	= new Array<City> ();
   areas	= new Array<Area> ();
@@ -16,4 +16,13 @@ export class AdminLookupsResponse extends Response{
   landlinePhones	= new Array<LandlinePhone> ();
   features	= new Array<Feature> ();
   logistics	= new Array<Logistics> ();
+
+  static fromHttp(httpResponse: AdminLookupsResponse) {
+    const adminLookupsResponse = new AdminLookupsResponse();
+    adminLookupsResponse.countries = new Array<Country>();
+    for (const httpCountryResponse of httpResponse.countries) {
+      adminLookupsResponse.countries.push(Country.fromHttp(httpCountryResponse));
+    }
+    return adminLookupsResponse;
+  }
 }

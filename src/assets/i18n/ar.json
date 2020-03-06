@@ -28,7 +28,9 @@
     "TRY_IT_NOW" : "!جربه الان"
   },
   "MESSAGES":{
-    "CONFIRM_DELETE_ITEM": "هل انت متأكد من رغبتك في حذف هذا العنصر؟"
+    "CONFIRM_DELETE_ITEM": "هل انت متأكد من رغبتك في حذف هذا العنصر؟",
+    "PROCESSED_SUCCESSFULLY": "معالجة ناجحة",
+    "AN_ERROR_HAPPENED": "حدث خطأ"
   },
   "VALIDATIONS":{
     "REQUIRED": "عنصر مطلوب"

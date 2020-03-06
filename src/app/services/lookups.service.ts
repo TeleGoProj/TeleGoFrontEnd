@@ -1,36 +1,32 @@
-import { Country } from './../model/Country';
+import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
+import {HttpClient} from '@angular/common/http';
 import { AdminLookupsResponse } from '../model/response/AdminLookupsResponse';
+import {map} from 'rxjs/operators';
+import { Country } from '../model/Country';
+import { AdminLookupsRequest } from '../model/request/AdminLookupsRequest';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LookupsService {
 
-  constructor() { }
-
+  constructor(private http: HttpClient) { }
 
   getLookups(): Observable<AdminLookupsResponse> {
-    const adminLookupsResponse = new AdminLookupsResponse();
+    return this.http.get<AdminLookupsResponse>(environment.restUrl + '/api/admin/view-lookups').
+    pipe(
+      map(data => {
+        return AdminLookupsResponse.fromHttp(data);
+      })
+    );
+  }
 
-    const countries = new Array<Country>();
-    const egypt = new Country(new Country(), 1, 'Egypt', 'Misr', 'EG', null);
-    // const france = new Country(1, 'France', 'Faransa', 'FR', null);
-    // const usa = new Country(1, 'USA', 'Amrika', 'USA', null);
-    // const libya = new Country(1, 'Libya', 'Liby', 'Ly', null);
-
-
-    for (let i = 0; i < 53; i++) {
-      const c = new Country(new Country(), i + 1, 'Egypt', 'Misr', 'EG', null);
-      countries.push(c);
-    }
-    // countries.push(france);
-    // countries.push(usa);
-    // countries.push(libya);
-
-    adminLookupsResponse.countries = countries;
-
-    return of(adminLookupsResponse);
+  processCountries(countries: Array<Country>, deletedCountries: Array<Country>): Observable<AdminLookupsResponse> {
+    const adminLookupsRequest = new AdminLookupsRequest();
+    adminLookupsRequest.countries = countries;
+    adminLookupsRequest.deletedCountries = deletedCountries;
+    return this.http.put<AdminLookupsResponse>(environment.restUrl + '/api/admin/process-countries', adminLookupsRequest);
   }
 }
