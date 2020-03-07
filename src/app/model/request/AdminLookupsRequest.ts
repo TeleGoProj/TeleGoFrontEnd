@@ -12,6 +12,7 @@ export class AdminLookupsRequest {
   countries	= new Array<Country> ();
   deletedCountries	= new Array<Country> ();
   cities	= new Array<City> ();
+  deletedCities = new Array<City> ();
   areas	= new Array<Area> ();
   cabins	= new Array<Cabin> ();
   boxes	= new Array<Box> ();

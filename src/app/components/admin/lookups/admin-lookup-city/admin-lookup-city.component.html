@@ -1,1 +1,88 @@
-<p>admin-lookup-city works!</p>
+<div class="spinner-grow text-light" role="status" [hidden]="!serverIsProcessing">
+    <span class="sr-only">Loading...</span>
+  </div>
+  
+
+  <!-- City lookup -->
+  <section>
+    <div class="container">
+        <div class="row">
+            <div class="card col col-lg-12">
+              <h5 class="card-header">City Lookup</h5>
+              <div class="card-body">
+                <h5 class="card-title">City Management</h5>
+                <p class="card-text">Add, edit, update and delete</p>	
+                <div class="pt-3"></div>
+                
+                <button class="btn btn-secondary" onclick="addRow('cities-table')"><i class="fa fa-plus"></i></button>
+                <button class="btn btn-success mx-5" (click)="submitAllCities()" [disabled]="numberOfUnderEditCities!=0">
+                    <i class="fa fa-check" *ngIf="!serverIsProcessing"></i>
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="serverIsProcessing"></span>
+                  </button>
+                
+                <div class="pt-3" [hidden]="!message"></div>
+                <ngb-alert *ngIf="message" [type]="alertType" (close)="message = null">{{ message }}</ngb-alert>
+
+                <div class="pt-3"></div>
+
+                <table id="cities-table" class="table table-striped table-hover table-responsive-lg">
+                    <thead>
+                        <tr>
+                            <th class="th-sm">English Name</th>
+                            <th class="th-sm">Arabic Name</th>
+                            <th class="th-sm">Country Name</th>
+                            <th class="th-sm">Code</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let city of cities | paginate: citiesPaination.page : citiesPaination" [@fadeInOut]>
+                            <td>
+                                <span [hidden]="city.markedAsEditingNow">{{city.nameEn}}</span>
+                                <input type="text" [hidden]="!city.markedAsEditingNow" [(ngModel)]="city.tempEiditingCity.nameEn"
+                                class="form-control" [@fadeInOut] required #nameEn="ngModel"/>
+                                <div *ngIf="nameEn.errors?.required && nameEn.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
+                              </td>
+                              <td>
+                                <span [hidden]="city.markedAsEditingNow">{{city.nameAr}}</span>
+                                <input type="text"  [hidden]="!city.markedAsEditingNow" [(ngModel)]="city.tempEiditingCity.nameAr"
+                                class="form-control" [@fadeInOut] required #nameAr="ngModel"/>
+                                <div *ngIf="nameAr.errors?.required && nameAr.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
+                              </td>
+                              <td>
+                                <span [hidden]="country.markedAsEditingNow">{{country.code}}</span>
+                                <input type="text"  [hidden]="!country.markedAsEditingNow" [(ngModel)]="country.tempEiditingCountry.code"
+                                class="form-control" [@fadeInOut] required #code="ngModel"/>
+                                <div *ngIf="code.errors?.required && code.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
+                              </td>
+                              <td>
+                                <span [hidden]="city.markedAsEditingNow">{{city.code}}</span>
+                                <input type="text"  [hidden]="!city.markedAsEditingNow" [(ngModel)]="city.tempEiditingCity.code" 
+                                class="form-control" [@fadeInOut] required #code="ngModel"/>
+                                <div *ngIf="code.errors?.required && code.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
+                              </td>
+                               <td>
+                                <i class="fas fa-pencil-alt" id="dd" aria-hidden="true" style="cursor:pointer;" (click)="editCity(city)"></i>
+                            </td>
+                            <td>
+                                <i class="fa fa-check" aria-hidden="true" style="cursor:pointer;" (click)="applyEditedCity(city)"></i>
+                              </td>
+                              <td>
+                                <i class="fa fa-trash" aria-hidden="true" style="cursor:pointer;" (click)="deleteCity(city)"></i>
+                              </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <app-pagination [collection]="cities" #citiesPaination></app-pagination>
+
+
+              </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="pt-5"></div>
