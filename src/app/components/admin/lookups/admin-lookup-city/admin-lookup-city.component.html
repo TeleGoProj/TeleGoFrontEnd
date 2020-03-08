@@ -14,7 +14,7 @@
                 <p class="card-text">Add, edit, update and delete</p>	
                 <div class="pt-3"></div>
                 
-                <button class="btn btn-secondary" onclick="addRow('cities-table')"><i class="fa fa-plus"></i></button>
+                <button class="btn btn-secondary" (click)="addRow()"><i class="fa fa-plus"></i></button>
                 <button class="btn btn-success mx-5" (click)="submitAllCities()" [disabled]="numberOfUnderEditCities!=0">
                     <i class="fa fa-check" *ngIf="!serverIsProcessing"></i>
                     <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="serverIsProcessing"></span>
@@ -52,8 +52,8 @@
                                 <div *ngIf="nameAr.errors?.required && nameAr.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
                               </td>
                               <td>
-                                <span [hidden]="country.markedAsEditingNow">{{country.code}}</span>
-                                <input type="text"  [hidden]="!country.markedAsEditingNow" [(ngModel)]="country.tempEiditingCountry.code"
+                                <span [hidden]="city.markedAsEditingNow">{{city.code}}</span>
+                                <input type="text"  [hidden]="!city.markedAsEditingNow" [(ngModel)]="city.tempEiditingCity.code"
                                 class="form-control" [@fadeInOut] required #code="ngModel"/>
                                 <div *ngIf="code.errors?.required && code.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
                               </td>

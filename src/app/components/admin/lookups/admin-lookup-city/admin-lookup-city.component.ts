@@ -37,12 +37,12 @@ export class AdminLookupCityComponent implements OnInit {
   ngOnInit() {
   }
 
-  submitAllCountries() {
+  submitAllCities() {
     this.serverIsProcessing = true;
     this.showAlert = false;
     this.adminService.processCities(this.cities, this.deletedCities).subscribe(
       next => {
-          if (next && next.countries) {
+          if (next && next.cities) {
             this.cities = new Array<City>();
             for (const c of next.cities) {
               this.cities.push(City.fromHttp(c));
@@ -67,41 +67,41 @@ export class AdminLookupCityComponent implements OnInit {
     }
   
     addRow() {
-      const newCountry = new City();
-      newCountry.markedAsEditingNow = true;
-      newCountry.tempEiditingCountry = new City();
-      this.cities.push(newCountry);
+      const newCity = new City();
+      newCity.markedAsEditingNow = true;
+      newCity.tempEiditingCity = new City();
+      this.cities.push(newCity);
       this.numberOfUnderEditCities++;
     }
   
-    applyEditedCountry(editedCountry: City){
-      if (this.isValidCountry(editedCountry.tempEiditingCountry)){
-        editedCountry.clone(editedCountry.tempEiditingCountry);
-        editedCountry.markedAsEditingNow = false;
+    applyEditedCity(editedCity: City){
+      if (this.isValidCity(editedCity.tempEiditingCity)){
+        editedCity.clone(editedCity.tempEiditingCity);
+        editedCity.markedAsEditingNow = false;
         this.numberOfUnderEditCities--;
       }
     }
   
-    editCountry(editedCountry: City) {
-      editedCountry.markedAsEditingNow = true;
-      editedCountry.tempEiditingCountry.clone(editedCountry);
+    editCity(editedCity: City) {
+      editedCity.markedAsEditingNow = true;
+      editedCity.tempEiditingCity.clone(editedCity);
       this.numberOfUnderEditCities++;
     }
   
-    deleteCountry(deletedCountry: City) {
+    deleteCity(deletedCity: City) {
       this.translate.get('MESSAGES.CONFIRM_DELETE_ITEM').subscribe((message: string) => {
         if (confirm(message)) {
-          const index: number = this.cities.indexOf(deletedCountry);
+          const index: number = this.cities.indexOf(deletedCity);
           if (index !== -1) {
               this.cities.splice(index, 1);
-              this.deletedCities.push(deletedCountry);
+              this.deletedCities.push(deletedCity);
               this.numberOfUnderEditCities--;
             }
           }
     });
     }
   
-    isValidCountry(checkedCity: City): boolean{
+    isValidCity(checkedCity: City): boolean{
       if (checkedCity && checkedCity.nameEn && checkedCity.nameAr && checkedCity.code) {
         return true;
       }
