@@ -10,6 +10,7 @@ export class City {
   markedAsEditingNow = false;
 
   tempEiditingCountry: City;
+  tempEditingCity : City;
 
   static fromHttp(httpResponse: City) {
     const city = new City();
@@ -28,17 +29,22 @@ export class City {
     this.code = source.code;
     
   }
-}
 
 
 
-
-
-  /*constructor();
+  constructor();
   constructor(cityId?: number, nameEn?: string, nameAr?: string, code?: string) {
     this.cityId = cityId;
     this.nameAr = nameEn;
     this.nameEn = nameAr;
     this.code = code;
   }
-}*/
+}
+
+
+
+
+
+
+
+  

@@ -4,6 +4,7 @@ import { AdminService } from './../../../../services/admin.service';
 import { trigger, state, transition, style, animate } from '@angular/animations';
 import { TranslateService } from '@ngx-translate/core';
 import {Subject} from 'rxjs';
+import { Country } from './../../../../model/Country';
 @Component({
   selector: 'app-admin-lookup-city',
   templateUrl: './admin-lookup-city.component.html',
@@ -18,7 +19,9 @@ import {Subject} from 'rxjs';
     ]
 })
 export class AdminLookupCityComponent implements OnInit {
-
+ 
+  people = ["ahmed"+ " "+"Egypt" , "Mohamed"+" "+"KSA" , " Mariam"+" "+"AUE"];
+  @Input() countries: Array<Country>;
   @Input() cities: Array<City>;
   deletedCities = new Array<City>();
 
@@ -69,14 +72,14 @@ export class AdminLookupCityComponent implements OnInit {
     addRow() {
       const newCity = new City();
       newCity.markedAsEditingNow = true;
-      newCity.tempEiditingCity = new City();
+      newCity.tempEditingCity = new City();
       this.cities.push(newCity);
       this.numberOfUnderEditCities++;
     }
   
     applyEditedCity(editedCity: City){
-      if (this.isValidCity(editedCity.tempEiditingCity)){
-        editedCity.clone(editedCity.tempEiditingCity);
+      if (this.isValidCity(editedCity.tempEditingCity)){
+        editedCity.clone(editedCity.tempEditingCity);
         editedCity.markedAsEditingNow = false;
         this.numberOfUnderEditCities--;
       }
@@ -84,7 +87,7 @@ export class AdminLookupCityComponent implements OnInit {
   
     editCity(editedCity: City) {
       editedCity.markedAsEditingNow = true;
-      editedCity.tempEiditingCity.clone(editedCity);
+      editedCity.tempEditingCity.clone(editedCity);
       this.numberOfUnderEditCities++;
     }
   
@@ -109,6 +112,3 @@ export class AdminLookupCityComponent implements OnInit {
     }
   }
   
-
-
-

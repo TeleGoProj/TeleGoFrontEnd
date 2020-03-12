@@ -30,7 +30,6 @@
                         <tr>
                             <th class="th-sm">English Name</th>
                             <th class="th-sm">Arabic Name</th>
-                            <th class="th-sm">Country Name</th>
                             <th class="th-sm">Code</th>
                             <th></th>
                             <th></th>
@@ -38,6 +37,21 @@
                         </tr>
                     </thead>
                     <tbody>
+                      <tr>
+                        <td>
+                        <div class="row">
+                          <div class="col">
+                            <div ngbDropdown class="d-inline-block">
+                              <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Toggle dropdown</button>
+                              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                <button ngbDropdownItem  *ngFor="let country of countries">{{country}} </button>
+                              <button ngbDropdownItem  *ngFor="let person of people">{{person}}</button>
+                              </div>
+                            </div>
+                          </div>
+                          </div>
+                          </td>
+                      </tr>
                         <tr *ngFor="let city of cities | paginate: citiesPaination.page : citiesPaination" [@fadeInOut]>
                             <td>
                                 <span [hidden]="city.markedAsEditingNow">{{city.nameEn}}</span>
@@ -57,12 +71,7 @@
                                 class="form-control" [@fadeInOut] required #code="ngModel"/>
                                 <div *ngIf="code.errors?.required && code.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
                               </td>
-                              <td>
-                                <span [hidden]="city.markedAsEditingNow">{{city.code}}</span>
-                                <input type="text"  [hidden]="!city.markedAsEditingNow" [(ngModel)]="city.tempEiditingCity.code" 
-                                class="form-control" [@fadeInOut] required #code="ngModel"/>
-                                <div *ngIf="code.errors?.required && code.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
-                              </td>
+                              
                                <td>
                                 <i class="fas fa-pencil-alt" id="dd" aria-hidden="true" style="cursor:pointer;" (click)="editCity(city)"></i>
                             </td>
