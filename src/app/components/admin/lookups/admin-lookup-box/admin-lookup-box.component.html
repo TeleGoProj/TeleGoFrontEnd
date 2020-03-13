@@ -1,0 +1,82 @@
+<div class="spinner-grow text-light" role="status" [hidden]="!serverIsProcessing">
+  <span class="sr-only">Loading...</span>
+</div>
+
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="card col col-lg-12">
+        <h5 class="card-header">Box Lookup</h5>
+        <div class="card-body">
+        <h5 class="card-title">Box Management</h5>
+        <p class="card-text">Add, edit, update and delete</p>
+        <div class="pt-3"></div>
+
+        <button class="btn btn-secondary" (click)="addRow()"><i class="fa fa-plus"></i></button>
+        <button class="btn btn-success mx-5" (click)="submitAllBoxes()" [disabled]="numberOfUnderEditBoxes!=0">
+          <i class="fa fa-check" *ngIf="!serverIsProcessing"></i>
+          <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="serverIsProcessing"></span>
+        </button>
+
+        <div class="pt-3" [hidden]="!message"></div>
+
+        <ngb-alert *ngIf="message" [type]="alertType" (close)="message = null">{{ message }}</ngb-alert>
+
+        <div class="pt-3"></div>
+        <table id="boxes-table" class="table table-striped table-hover table-responsive-lg">
+          <thead>
+            <tr>
+              <th class="th-sm">English Name</th>
+              <th class="th-sm">Arabic Name</th>
+              <th class="th-sm">Code</th>
+              <th></th>
+              <th></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let box of boxes | paginate: boxesPaination.page : boxesPaination" [@fadeInOut]>
+              <td>
+                <span [hidden]="box.markedAsEditingNow">{{box.boxName}}</span>
+                <input type="text" [hidden]="!box.markedAsEditingNow" [(ngModel)]="box.tempEiditingBox.boxName"
+                class="form-control" [@fadeInOut] required #boxName="ngModel"/>
+                <div *ngIf="boxName.errors?.required && boxName.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
+              </td>
+              <td>
+                <span [hidden]="box.markedAsEditingNow">{{box.longitude}}</span>
+                <input type="text"  [hidden]="!box.markedAsEditingNow" [(ngModel)]="box.tempEiditingBox.longitude"
+                class="form-control" [@fadeInOut] required #longitude="ngModel"/>
+                <div *ngIf="longitude.errors?.required && longitude.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
+              </td>
+              <td>
+                <span [hidden]="box.markedAsEditingNow">{{box.latitude}}</span>
+                <input type="text"  [hidden]="!box.markedAsEditingNow" [(ngModel)]="box.tempEiditingBox.latitude"
+                class="form-control" [@fadeInOut] required #latitude="ngModel"/>
+                <div *ngIf="latitude.errors?.required && latitude.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
+              </td>
+              <td>
+                <span [hidden]="box.markedAsEditingNow">{{box.streetName}}</span>
+                <input type="text"  [hidden]="!box.markedAsEditingNow" [(ngModel)]="box.tempEiditingBox.streetName"
+                class="form-control" [@fadeInOut] required #streetName="ngModel"/>
+                <div *ngIf="streetName.errors?.required && streetName.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
+              </td>
+              <td>
+                <i class="fas fa-pencil-alt" id="dd" aria-hidden="true" style="cursor:pointer;" (click)="editBox(box)"></i>
+              </td>
+              <td>
+                <i class="fa fa-check" aria-hidden="true" style="cursor:pointer;" (click)="applyEditedBox(box)"></i>
+              </td>
+              <td>
+                <i class="fa fa-trash" aria-hidden="true" style="cursor:pointer;" (click)="deleteBox(box)"></i>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <app-pagination [collection]="boxes" #boxesPaination></app-pagination>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>

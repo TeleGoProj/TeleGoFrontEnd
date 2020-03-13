@@ -3,6 +3,8 @@ import { AdminLookupsRequest } from './../model/request/AdminLookupsRequest';
 import { Observable } from 'rxjs';
 import { Country } from './../model/Country';
 import { City } from './../model/City';
+import { Box } from './../model/Box';
+import { Area } from './../model/Area';
 import { LookupsService } from './lookups.service';
 import { Injectable } from '@angular/core';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
@@ -17,6 +19,7 @@ export class AdminService implements Resolve<Observable<AdminLookupsResponse>>{
   countries = new Array<Country>();
   message: string;
 
+
   constructor(private lookupsService: LookupsService, private http: HttpClient) { }
 
   resolve() {
@@ -29,6 +32,13 @@ export class AdminService implements Resolve<Observable<AdminLookupsResponse>>{
 
   processCities(cities: Array<City>, deletedCities: Array<City>): Observable<AdminLookupsResponse> {
     return this.lookupsService.processCities( cities, deletedCities);
+  }
+
+  processBoxes(boxes: Array<Box>, deletedBoxes: Array<Box>): Observable<AdminLookupsResponse> {
+    return this.lookupsService.processBoxes(boxes, deletedBoxes);
+  }
+  processAreas(areas: Array<Area>, deletedAreas: Array<Area>): Observable<AdminLookupsResponse> {
+    return this.lookupsService.processAreas(areas, deletedAreas);
   }
 
 }
