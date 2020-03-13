@@ -9,7 +9,7 @@ export class City {
   markedAsDeleted = false;
   markedAsEditingNow = false;
 
-  tempEiditingCountry: City;
+  tempEditingCountry: City;
   tempEditingCity : City;
 
   static fromHttp(httpResponse: City) {
@@ -18,7 +18,7 @@ export class City {
     city.nameEn = httpResponse.nameEn;
     city.nameAr = httpResponse.nameAr;
     city.code = httpResponse.code;
-    city.tempEiditingCountry = new City();
+    city.tempEditingCity = new City();
     return city;
   }
 
@@ -32,13 +32,13 @@ export class City {
 
 
 
-  constructor();
+  /*constructor();
   constructor(cityId?: number, nameEn?: string, nameAr?: string, code?: string) {
     this.cityId = cityId;
     this.nameAr = nameEn;
     this.nameEn = nameAr;
     this.code = code;
-  }
+  }*/
 }
 
 

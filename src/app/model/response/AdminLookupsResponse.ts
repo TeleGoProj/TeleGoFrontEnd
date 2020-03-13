@@ -23,6 +23,9 @@ export class AdminLookupsResponse {
     for (const httpCountryResponse of httpResponse.countries) {
       adminLookupsResponse.countries.push(Country.fromHttp(httpCountryResponse));
     }
+    for (const httpCityResponse of httpResponse.cities) {
+      adminLookupsResponse.cities.push(City.fromHttp(httpCityResponse));
+    }
     return adminLookupsResponse;
   }
 }

@@ -20,7 +20,7 @@ import { Country } from './../../../../model/Country';
 })
 export class AdminLookupCityComponent implements OnInit {
  
-  people = ["ahmed"+ " "+"Egypt" , "Mohamed"+" "+"KSA" , " Mariam"+" "+"AUE"];
+  /*people = ["ahmed"+ " "+"Egypt" , "Mohamed"+" "+"KSA" , " Mariam"+" "+"AUE"];*/
   @Input() countries: Array<Country>;
   @Input() cities: Array<City>;
   deletedCities = new Array<City>();

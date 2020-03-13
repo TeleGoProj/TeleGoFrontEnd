@@ -42,11 +42,10 @@
                         <div class="row">
                           <div class="col">
                             <div ngbDropdown class="d-inline-block">
-                              <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Toggle dropdown</button>
+                              <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Choose Country</button>
                               <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
                                 <button ngbDropdownItem  *ngFor="let country of countries">{{country}} </button>
-                              <button ngbDropdownItem  *ngFor="let person of people">{{person}}</button>
-                              </div>
+                                </div>
                             </div>
                           </div>
                           </div>
@@ -55,19 +54,19 @@
                         <tr *ngFor="let city of cities | paginate: citiesPaination.page : citiesPaination" [@fadeInOut]>
                             <td>
                                 <span [hidden]="city.markedAsEditingNow">{{city.nameEn}}</span>
-                                <input type="text" [hidden]="!city.markedAsEditingNow" [(ngModel)]="city.tempEiditingCity.nameEn"
+                                <input type="text" [hidden]="!city.markedAsEditingNow" [(ngModel)]="city.tempEditingCity.nameEn"
                                 class="form-control" [@fadeInOut] required #nameEn="ngModel"/>
                                 <div *ngIf="nameEn.errors?.required && nameEn.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
                               </td>
                               <td>
                                 <span [hidden]="city.markedAsEditingNow">{{city.nameAr}}</span>
-                                <input type="text"  [hidden]="!city.markedAsEditingNow" [(ngModel)]="city.tempEiditingCity.nameAr"
+                                <input type="text"  [hidden]="!city.markedAsEditingNow" [(ngModel)]="city.tempEditingCity.nameAr"
                                 class="form-control" [@fadeInOut] required #nameAr="ngModel"/>
                                 <div *ngIf="nameAr.errors?.required && nameAr.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
                               </td>
                               <td>
                                 <span [hidden]="city.markedAsEditingNow">{{city.code}}</span>
-                                <input type="text"  [hidden]="!city.markedAsEditingNow" [(ngModel)]="city.tempEiditingCity.code"
+                                <input type="text"  [hidden]="!city.markedAsEditingNow" [(ngModel)]="city.tempEditingCity.code"
                                 class="form-control" [@fadeInOut] required #code="ngModel"/>
                                 <div *ngIf="code.errors?.required && code.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
                               </td>
