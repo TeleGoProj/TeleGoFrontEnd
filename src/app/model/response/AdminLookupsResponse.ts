@@ -23,6 +23,14 @@ export class AdminLookupsResponse {
     for (const httpCountryResponse of httpResponse.countries) {
       adminLookupsResponse.countries.push(Country.fromHttp(httpCountryResponse));
     }
+    adminLookupsResponse.boxes = new Array<Box>();
+    for (const httpBoxResponse of httpResponse.boxes) {
+      adminLookupsResponse.boxes.push(Box.fromHttp(httpBoxResponse));
+    }
+    adminLookupsResponse.areas = new Array<Area>();
+    for (const httpAreaResponse of httpResponse.areas) {
+      adminLookupsResponse.areas.push(Area.fromHttp(httpAreaResponse));
+    }
     return adminLookupsResponse;
   }
 }
