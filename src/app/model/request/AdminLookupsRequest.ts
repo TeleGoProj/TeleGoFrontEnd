@@ -14,8 +14,11 @@ export class AdminLookupsRequest {
   cities	= new Array<City> ();
   deletedCities = new Array<City> ();
   areas	= new Array<Area> ();
+  deletedAreas = new Array<Area> ();
   cabins	= new Array<Cabin> ();
+  deletedCabins = new Array<Cabin> ();
   boxes	= new Array<Box> ();
+  deletedBoxes = new Array<Box> ();
   landlinePhones	= new Array<LandlinePhone> ();
   features	= new Array<Feature> ();
   logistics	= new Array<Logistics> ();

@@ -6,6 +6,8 @@ import { AdminLookupsResponse } from '../model/response/AdminLookupsResponse';
 import {map} from 'rxjs/operators';
 import { Country } from '../model/Country';
 import { City } from '../model/City';
+import { Box } from '../model/Box';
+import { Area } from '../model/Area';
 import { AdminLookupsRequest } from '../model/request/AdminLookupsRequest';
 
 @Injectable({
@@ -36,5 +38,18 @@ export class LookupsService {
     adminLookupsRequest.cities = cities;
     adminLookupsRequest.deletedCities = deletedCities;
     return this.http.put<AdminLookupsResponse>(environment.restUrl + '/api/admin/process-cities', adminLookupsRequest);
+  }
+
+  processBoxes(boxes: Array<Box>, deletedBoxes: Array<Box>): Observable<AdminLookupsResponse> {
+    const adminLookupsRequest = new AdminLookupsRequest();
+    adminLookupsRequest.boxes = boxes;
+    adminLookupsRequest.deletedBoxes = deletedBoxes;
+    return this.http.put<AdminLookupsResponse>(environment.restUrl + '/api/admin/process-boxes', adminLookupsRequest);
+  }
+  processAreas(areas: Array<Area>, deletedAreas: Array<Area>): Observable<AdminLookupsResponse> {
+    const adminLookupsRequest = new AdminLookupsRequest();
+    adminLookupsRequest.areas = areas;
+    adminLookupsRequest.deletedAreas = deletedAreas;
+    return this.http.put<AdminLookupsResponse>(environment.restUrl + '/api/admin/process-areas', adminLookupsRequest);
   }
 }
