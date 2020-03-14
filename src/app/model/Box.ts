@@ -12,7 +12,7 @@ export class Box {
     boxes: Array<Box>;
 
     
-  tempEiditingBox: Box;
+  tempEditingBox: Box;
 
   static fromHttp(httpResponse: Box) {
     const box = new Box();
@@ -21,7 +21,7 @@ export class Box {
     box.longitude = httpResponse.longitude;
     box.latitude = httpResponse.latitude;
     box.streetName = httpResponse.streetName;
-    box.tempEiditingBox = new Box();
+    box.tempEditingBox = new Box();
     return box;
   }
 

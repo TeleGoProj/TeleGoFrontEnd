@@ -9,7 +9,7 @@ export class Area {
   markedAsEditingNow = false;
 
   cabins: Array<Cabin>;
-  tempEiditingArea: Area;
+  tempEditingArea: Area;
 
 
   static fromHttp(httpResponse: Area) {
@@ -18,7 +18,7 @@ export class Area {
     area.areaNameEn = httpResponse.areaNameEn;
     area.areaNameAr = httpResponse.areaNameAr;
     area.cabins = httpResponse.cabins;
-    area.tempEiditingArea = new Area();
+    area.tempEditingArea = new Area();
     return area;
   }
 

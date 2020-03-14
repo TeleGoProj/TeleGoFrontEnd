@@ -11,7 +11,7 @@ export class Country {
 
   cities: Array<City>;
 
-  tempEiditingCountry: Country;
+  tempEditingCountry: Country;
 
   static fromHttp(httpResponse: Country) {
     const country = new Country();
@@ -20,7 +20,7 @@ export class Country {
     country.nameAr = httpResponse.nameAr;
     country.code = httpResponse.code;
     country.cities = httpResponse.cities;
-    country.tempEiditingCountry = new Country();
+    country.tempEditingCountry = new Country();
     return country;
   }
 

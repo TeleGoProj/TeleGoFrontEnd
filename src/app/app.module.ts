@@ -16,6 +16,8 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { AdminLookupComponent } from './components/admin/lookups/admin-lookup/admin-lookup.component';
 import { AdminLookupCountryComponent } from './components/admin/lookups/admin-lookup-country/admin-lookup-country.component';
 import { AdminLookupCityComponent } from './components/admin/lookups/admin-lookup-city/admin-lookup-city.component';
+import { AdminLookupBoxComponent } from './components/admin/lookups/admin-lookup-box/admin-lookup-box.component';
+import { AdminLookupAreaComponent } from './components/admin/lookups/admin-lookup-area/admin-lookup-area.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { PaginatePipe } from './components/pagination/paginate.pipe';
@@ -37,6 +39,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AdminLookupComponent,
     AdminLookupCountryComponent,
     AdminLookupCityComponent,
+    AdminLookupBoxComponent,
+    AdminLookupAreaComponent,
     PaginationComponent,
     PaginatePipe
   ],
