@@ -11,7 +11,7 @@ export class Box {
     markedAsDeleted = false;
     markedAsEditingNow = false;
 
-    landlinePhones: Array<LandlinePhone>;
+   
     boxes: Array<Box>;
 
     
