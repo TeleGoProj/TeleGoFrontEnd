@@ -38,25 +38,25 @@
             <tr *ngFor="let box of boxes | paginate: boxesPaination.page : boxesPaination" [@fadeInOut]>
               <td>
                 <span [hidden]="box.markedAsEditingNow">{{box.boxName}}</span>
-                <input type="text" [hidden]="!box.markedAsEditingNow" [(ngModel)]="box.tempEiditingBox.boxName"
+                <input type="text" [hidden]="!box.markedAsEditingNow" [(ngModel)]="box.tempEditingBox.boxName"
                 class="form-control" [@fadeInOut] required #boxName="ngModel"/>
                 <div *ngIf="boxName.errors?.required && boxName.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
               </td>
               <td>
                 <span [hidden]="box.markedAsEditingNow">{{box.longitude}}</span>
-                <input type="text"  [hidden]="!box.markedAsEditingNow" [(ngModel)]="box.tempEiditingBox.longitude"
+                <input type="text"  [hidden]="!box.markedAsEditingNow" [(ngModel)]="box.tempEditingBox.longitude"
                 class="form-control" [@fadeInOut] required #longitude="ngModel"/>
                 <div *ngIf="longitude.errors?.required && longitude.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
               </td>
               <td>
                 <span [hidden]="box.markedAsEditingNow">{{box.latitude}}</span>
-                <input type="text"  [hidden]="!box.markedAsEditingNow" [(ngModel)]="box.tempEiditingBox.latitude"
+                <input type="text"  [hidden]="!box.markedAsEditingNow" [(ngModel)]="box.tempEditingBox.latitude"
                 class="form-control" [@fadeInOut] required #latitude="ngModel"/>
                 <div *ngIf="latitude.errors?.required && latitude.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
               </td>
               <td>
                 <span [hidden]="box.markedAsEditingNow">{{box.streetName}}</span>
-                <input type="text"  [hidden]="!box.markedAsEditingNow" [(ngModel)]="box.tempEiditingBox.streetName"
+                <input type="text"  [hidden]="!box.markedAsEditingNow" [(ngModel)]="box.tempEditingBox.streetName"
                 class="form-control" [@fadeInOut] required #streetName="ngModel"/>
                 <div *ngIf="streetName.errors?.required && streetName.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
               </td>

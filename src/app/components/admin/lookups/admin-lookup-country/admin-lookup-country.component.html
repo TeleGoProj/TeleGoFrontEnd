@@ -38,19 +38,19 @@
             <tr *ngFor="let country of countries | paginate: countriesPaination.page : countriesPaination" [@fadeInOut]>
               <td>
                 <span [hidden]="country.markedAsEditingNow">{{country.nameEn}}</span>
-                <input type="text" [hidden]="!country.markedAsEditingNow" [(ngModel)]="country.tempEiditingCountry.nameEn"
+                <input type="text" [hidden]="!country.markedAsEditingNow" [(ngModel)]="country.tempEditingCountry.nameEn"
                 class="form-control" [@fadeInOut] required #nameEn="ngModel"/>
                 <div *ngIf="nameEn.errors?.required && nameEn.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
               </td>
               <td>
                 <span [hidden]="country.markedAsEditingNow">{{country.nameAr}}</span>
-                <input type="text"  [hidden]="!country.markedAsEditingNow" [(ngModel)]="country.tempEiditingCountry.nameAr"
+                <input type="text"  [hidden]="!country.markedAsEditingNow" [(ngModel)]="country.tempEditingCountry.nameAr"
                 class="form-control" [@fadeInOut] required #nameAr="ngModel"/>
                 <div *ngIf="nameAr.errors?.required && nameAr.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
               </td>
               <td>
                 <span [hidden]="country.markedAsEditingNow">{{country.code}}</span>
-                <input type="text"  [hidden]="!country.markedAsEditingNow" [(ngModel)]="country.tempEiditingCountry.code"
+                <input type="text"  [hidden]="!country.markedAsEditingNow" [(ngModel)]="country.tempEditingCountry.code"
                 class="form-control" [@fadeInOut] required #code="ngModel"/>
                 <div *ngIf="code.errors?.required && code.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
               </td>

@@ -49,6 +49,12 @@
                 <div *ngIf="areaNameAr.errors?.required && areaNameAr.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
               </td>
               <td>
+                <span [hidden]="area.markedAsEditingNow">{{area.code}}</span>
+                <input type="text"  [hidden]="!area.markedAsEditingNow" [(ngModel)]="area.tempEditingArea.code"
+                class="form-control" [@fadeInOut] required #code="ngModel"/>
+                <div *ngIf="code.errors?.required && code.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
+              </td>
+              <td>
                 <i class="fas fa-pencil-alt" id="dd" aria-hidden="true" style="cursor:pointer;" (click)="editarea(area)"></i>
               </td>
               <td>

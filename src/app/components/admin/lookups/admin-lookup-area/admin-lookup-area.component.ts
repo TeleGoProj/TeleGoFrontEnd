@@ -67,14 +67,14 @@ export class AdminLookupAreaComponent implements OnInit {
   addRow() {
     const newArea = new Area();
     newArea.markedAsEditingNow = true;
-    newArea.tempEiditingArea = new Area();
+    newArea.tempEditingArea = new Area();
     this.areas.push(newArea);
     this.numberOfUnderEditAreas++;
   }
 
   applyEditedArea(editedArea: Area){
-    if (this.isValidArea(editedArea.tempEiditingArea)){
-      editedArea.clone(editedArea.tempEiditingArea);
+    if (this.isValidArea(editedArea.tempEditingArea)){
+      editedArea.clone(editedArea.tempEditingArea);
       editedArea.markedAsEditingNow = false;
       this.numberOfUnderEditAreas--;
     }
@@ -82,7 +82,7 @@ export class AdminLookupAreaComponent implements OnInit {
 
   Area(editedArea: Area) {
     editedArea.markedAsEditingNow = true;
-    editedArea.tempEiditingArea.clone(editedArea);
+    editedArea.tempEditingArea.clone(editedArea);
     this.numberOfUnderEditAreas++;
   }
 

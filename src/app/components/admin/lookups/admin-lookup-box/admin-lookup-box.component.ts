@@ -67,14 +67,14 @@ export class AdminLookupBoxComponent implements OnInit {
   addRow() {
     const newBox = new Box();
     newBox.markedAsEditingNow = true;
-    newBox.tempEiditingBox = new Box();
+    newBox.tempEditingBox = new Box();
     this.boxes.push(newBox);
     this.numberOfUnderEditBoxes++;
   }
 
   applyEditedBox(editedBox: Box){
-    if (this.isValidBox(editedBox.tempEiditingBox)){
-      editedBox.clone(editedBox.tempEiditingBox);
+    if (this.isValidBox(editedBox.tempEditingBox)){
+      editedBox.clone(editedBox.tempEditingBox);
       editedBox.markedAsEditingNow = false;
       this.numberOfUnderEditBoxes--;
     }
@@ -82,7 +82,7 @@ export class AdminLookupBoxComponent implements OnInit {
 
   editBox(editedBox: Box) {
     editedBox.markedAsEditingNow = true;
-    editedBox.tempEiditingBox.clone(editedBox);
+    editedBox.tempEditingBox.clone(editedBox);
     this.numberOfUnderEditBoxes++;
   }
 

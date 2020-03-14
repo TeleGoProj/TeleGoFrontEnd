@@ -67,14 +67,14 @@ export class AdminLookupCountryComponent implements OnInit {
   addRow() {
     const newCountry = new Country();
     newCountry.markedAsEditingNow = true;
-    newCountry.tempEiditingCountry = new Country();
+    newCountry.tempEditingCountry = new Country();
     this.countries.push(newCountry);
     this.numberOfUnderEditCountries++;
   }
 
   applyEditedCountry(editedCountry: Country){
-    if (this.isValidCountry(editedCountry.tempEiditingCountry)){
-      editedCountry.clone(editedCountry.tempEiditingCountry);
+    if (this.isValidCountry(editedCountry.tempEditingCountry)){
+      editedCountry.clone(editedCountry.tempEditingCountry);
       editedCountry.markedAsEditingNow = false;
       this.numberOfUnderEditCountries--;
     }
@@ -82,7 +82,7 @@ export class AdminLookupCountryComponent implements OnInit {
 
   editCountry(editedCountry: Country) {
     editedCountry.markedAsEditingNow = true;
-    editedCountry.tempEiditingCountry.clone(editedCountry);
+    editedCountry.tempEditingCountry.clone(editedCountry);
     this.numberOfUnderEditCountries++;
   }
 

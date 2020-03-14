@@ -1,3 +1,5 @@
+import { LandlinePhone } from './LandlinePhone';
+
 export class Box {
 
 	boxId: number;
@@ -9,6 +11,7 @@ export class Box {
     markedAsDeleted = false;
     markedAsEditingNow = false;
 
+    landlinePhones: Array<LandlinePhone>;
     boxes: Array<Box>;
 
     
