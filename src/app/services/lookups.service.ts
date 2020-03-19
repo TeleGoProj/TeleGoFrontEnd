@@ -24,6 +24,15 @@ export class LookupsService {
     );
   }
 
+  getCitiesByCountryId(countryId: number): Observable<AdminLookupsResponse> {
+    return this.http.get<AdminLookupsResponse>(environment.restUrl + '/api/admin/get-cities-by-country-id/countryId').
+    pipe(
+      map(data => {
+        return AdminLookupsResponse.fromHttp(data);
+      })
+    );
+  }
+
   processCountries(countries: Array<Country>, deletedCountries: Array<Country>): Observable<AdminLookupsResponse> {
     const adminLookupsRequest = new AdminLookupsRequest();
     adminLookupsRequest.countries = countries;

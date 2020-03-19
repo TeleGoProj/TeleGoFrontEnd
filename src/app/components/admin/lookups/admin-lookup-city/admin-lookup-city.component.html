@@ -44,13 +44,15 @@
                             <div ngbDropdown class="d-inline-block">
                               <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Choose Country</button>
                               <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                                <button ngbDropdownItem  *ngFor="let country of countries">{{country}} </button>
+                                <button ngbDropdownItem  *ngFor="let person of people" (click)="getCitiesByCountryId()">{{person}} </button>       
+                                <!--button ngbDropdownItem  *ngFor="let country of countries" (click)="getCitiesByCountryId()">{{country}} </button-->
                                 </div>
                             </div>
                           </div>
                           </div>
                           </td>
                       </tr>
+                      <div class="py-3"></div>
                         <tr *ngFor="let city of cities | paginate: citiesPaination.page : citiesPaination" [@fadeInOut]>
                             <td>
                                 <span [hidden]="city.markedAsEditingNow">{{city.nameEn}}</span>

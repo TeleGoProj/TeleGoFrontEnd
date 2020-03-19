@@ -23,6 +23,11 @@ export class AdminService implements Resolve<Observable<AdminLookupsResponse>>{
     return this.lookupsService.getLookups();
   }
 
+
+  getCitiesByCountryId(countryId: number): Observable<AdminLookupsResponse> {
+    return this.lookupsService.getCitiesByCountryId(countryId);
+  }
+
   processCountries(countries: Array<Country>, deletedCountries: Array<Country>): Observable<AdminLookupsResponse> {
     return this.lookupsService.processCountries(countries, deletedCountries);
   }
