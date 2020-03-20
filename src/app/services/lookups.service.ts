@@ -25,7 +25,7 @@ export class LookupsService {
   }
 
   getCitiesByCountryId(countryId: number): Observable<AdminLookupsResponse> {
-    return this.http.get<AdminLookupsResponse>(environment.restUrl + '/api/admin/get-cities-by-country-id/countryId').
+    return this.http.get<AdminLookupsResponse>(environment.restUrl + '/api/admin/get-cities-by-country-id/' + countryId).
     pipe(
       map(data => {
         return AdminLookupsResponse.fromHttp(data);

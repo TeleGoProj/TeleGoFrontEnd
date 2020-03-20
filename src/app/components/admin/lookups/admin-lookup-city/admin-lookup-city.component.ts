@@ -22,7 +22,8 @@ export class AdminLookupCityComponent implements OnInit {
  
   people = ["ahmed"+ " "+"Egypt" , "Mohamed"+" "+"KSA" , " Mariam"+" "+"AUE"];
   @Input() countries: Array<Country>;
-  @Input() cities: Array<City>;
+  @Input() cities: Array<City> ;
+  
   deletedCities = new Array<City>();
 
   message = '';
@@ -69,6 +70,11 @@ export class AdminLookupCityComponent implements OnInit {
     );
     }
   
+    getCitiesByCountryId(countryId: number){
+      
+       this.adminService.getCitiesByCountryId(countryId);
+    }
+
     addRow() {
       const newCity = new City();
       newCity.markedAsEditingNow = true;
