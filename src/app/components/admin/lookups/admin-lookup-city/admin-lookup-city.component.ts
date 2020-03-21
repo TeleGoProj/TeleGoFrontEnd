@@ -70,9 +70,27 @@ export class AdminLookupCityComponent implements OnInit {
     );
     }
   
-    getCitiesByCountryId(countryId: number){
-      
-       this.adminService.getCitiesByCountryId(countryId);
+   
+
+    getCitiesByCountryId(countryId: number) {
+      this.adminService.getCitiesByCountryId(countryId).subscribe(
+        next => {
+            if (next && next.cities) {
+              this.cities = new Array<City>();
+              for (const c of next.cities) {
+                this.cities.push(City.fromHttp(c));
+                }
+            }
+        },
+        error => {
+            this.translate.get('MESSAGES.AN_ERROR_HAPPENED').subscribe((message: string) => {
+            this.message = message + ' ' + error.message;
+            this.serverIsProcessing = false;
+            this.alert.next(message);
+            this.alertType = 'danger';
+          });
+        }
+      );
     }
 
     addRow() {

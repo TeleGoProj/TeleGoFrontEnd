@@ -42,10 +42,10 @@
                         <div class="row">
                           <div class="col">
                             <div ngbDropdown class="d-inline-block">
-                              <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Choose Country</button>
+                              <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle >Choose Country</button>
                               <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                                <!--button ngbDropdownItem  *ngFor="let person of people" (click)="getCitiesByCountryId()">{{person}} </button-->       
-                                <button ngbDropdownItem  *ngFor="let country of countries"  (click) = "getCitiesByCountryId(country.countryId)"> {{country}} </button>
+                                 
+                                <button ngbDropdownItem  *ngFor="let country of countries"  (click) = "getCitiesByCountryId(country.countryId)"> {{country.nameEn}} </button>
                                 </div>
                             </div>
                           </div>

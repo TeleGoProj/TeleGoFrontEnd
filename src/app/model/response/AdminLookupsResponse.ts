@@ -20,12 +20,16 @@ export class AdminLookupsResponse {
   static fromHttp(httpResponse: AdminLookupsResponse) {
     const adminLookupsResponse = new AdminLookupsResponse();
     adminLookupsResponse.countries = new Array<Country>();
+    if(httpResponse.countries){
     for (const httpCountryResponse of httpResponse.countries) {
       adminLookupsResponse.countries.push(Country.fromHttp(httpCountryResponse));
     }
+  }
+    if(httpResponse.cities){
     for (const httpCityResponse of httpResponse.cities) {
       adminLookupsResponse.cities.push(City.fromHttp(httpCityResponse));
     }
     return adminLookupsResponse;
   }
+}
 }
