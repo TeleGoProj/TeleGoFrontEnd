@@ -28,5 +28,4 @@ export class Area {
     this.areaNameAr = source.areaNameAr;
     this.cabins = source.cabins;
   }
-
 }

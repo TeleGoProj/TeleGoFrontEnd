@@ -11,11 +11,10 @@ export class Box {
     markedAsDeleted = false;
     markedAsEditingNow = false;
 
-   
     boxes: Array<Box>;
+    tempEditingBox: Box;
 
-    
-  tempEditingBox: Box;
+   
 
   static fromHttp(httpResponse: Box) {
     const box = new Box();
