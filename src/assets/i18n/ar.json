@@ -37,6 +37,15 @@
   },
   "GENERAL":{
     "PAGINATION": "ترقيم",
-    "CURRENT_PAGE": "الصفحة الحالية"
+    "CURRENT_PAGE": "الصفحة الحالية",
+    "ENGLISH_NAME": "الإسم الانجليزي",
+    "ARABIC_NAME": "الإسم العربي",
+    "CODE": "الكود"
+  },
+  "LOOKUPS":{
+    "CHOOSE_COUNTRY": "اختر الدولة",
+    "CITY_LOOKUP": "إختيارات المدينة",
+    "CITY_MANAGEMENT": "إدارة المدن",
+    "ADD_EDIT_DELETE": "اضف او عدل او امسح"
   }
 }

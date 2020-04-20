@@ -37,6 +37,15 @@
   },
   "GENERAL":{
     "PAGINATION": "Pagination",
-    "CURRENT_PAGE": "Current page"
+    "CURRENT_PAGE": "Current page",
+    "ENGLISH_NAME": "English Name",
+    "ARABIC_NAME": "Arabic Name",
+    "CODE": "Code"
+  },
+  "LOOKUPS":{
+    "CHOOSE_COUNTRY": "Choose Country",
+    "CITY_LOOKUP": "City Lookup",
+    "CITY_MANAGEMENT": "City Management",
+    "ADD_EDIT_DELETE": "Add, edit and delete"
   }
 }

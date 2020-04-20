@@ -1,25 +1,33 @@
 <div class="spinner-grow text-light" role="status" [hidden]="!serverIsProcessing">
     <span class="sr-only">Loading...</span>
   </div>
-  
+
 
   <!-- City lookup -->
   <section>
     <div class="container">
         <div class="row">
             <div class="card col col-lg-12">
-              <h5 class="card-header">City Lookup</h5>
+              <h5 class="card-header">{{'LOOKUPS.CITY_LOOKUP' | translate}}</h5>
               <div class="card-body">
-                <h5 class="card-title">City Management</h5>
-                <p class="card-text">Add, edit, update and delete</p>	
+                <h5 class="card-title">{{'LOOKUPS.CITY_MANAGEMENT' | translate}}</h5>
+                <p class="card-text">{{'LOOKUPS.ADD_EDIT_DELETE' | translate}}</p>
                 <div class="pt-3"></div>
-                
+
                 <button class="btn btn-secondary" (click)="addRow()"><i class="fa fa-plus"></i></button>
                 <button class="btn btn-success mx-5" (click)="submitAllCities()" [disabled]="numberOfUnderEditCities!=0">
                     <i class="fa fa-check" *ngIf="!serverIsProcessing"></i>
                     <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="serverIsProcessing"></span>
                   </button>
-                
+                  <div ngbDropdown class="d-inline-block">
+                    <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle *ngIf="!selectedCountry">{{'LOOKUPS.CHOOSE_COUNTRY' | translate}}</button>
+                    <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle *ngIf="selectedCountry">{{selectedCountry.nameEn}}</button>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+
+                      <button ngbDropdownItem  *ngFor="let country of countries"  (click) = "getCitiesOfCountry(country)"> {{country.nameEn}} </button>
+                      </div>
+                  </div>
+
                 <div class="pt-3" [hidden]="!message"></div>
                 <ngb-alert *ngIf="message" [type]="alertType" (close)="message = null">{{ message }}</ngb-alert>
 
@@ -28,30 +36,15 @@
                 <table id="cities-table" class="table table-striped table-hover table-responsive-lg">
                     <thead>
                         <tr>
-                            <th class="th-sm">English Name</th>
-                            <th class="th-sm">Arabic Name</th>
-                            <th class="th-sm">Code</th>
+                            <th class="th-sm">{{'GENERAL.ENGLISH_NAME' | translate}}</th>
+                            <th class="th-sm">{{'GENERAL.ARABIC_NAME' | translate}}</th>
+                            <th class="th-sm">{{'GENERAL.CODE' | translate}}</th>
                             <th></th>
                             <th></th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>
-                        <div class="row">
-                          <div class="col">
-                            <div ngbDropdown class="d-inline-block">
-                              <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle >Choose Country</button>
-                              <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                                 
-                                <button ngbDropdownItem  *ngFor="let country of countries"  (click) = "getCitiesByCountryId(country.countryId)"> {{country.nameEn}} </button>
-                                </div>
-                            </div>
-                          </div>
-                          </div>
-                          </td>
-                      </tr>
                       <div class="py-3"></div>
                         <tr *ngFor="let city of cities | paginate: citiesPaination.page : citiesPaination" [@fadeInOut]>
                             <td>
@@ -72,7 +65,7 @@
                                 class="form-control" [@fadeInOut] required #code="ngModel"/>
                                 <div *ngIf="code.errors?.required && code.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
                               </td>
-                              
+
                                <td>
                                 <i class="fas fa-pencil-alt" id="dd" aria-hidden="true" style="cursor:pointer;" (click)="editCity(city)"></i>
                             </td>

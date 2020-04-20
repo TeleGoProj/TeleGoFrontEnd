@@ -1,3 +1,4 @@
+import { LanguageComponent } from './../../../language/language.component';
 import { City } from './../../../../model/City';
 import { Component, OnInit, Input } from '@angular/core';
 import { AdminService } from './../../../../services/admin.service';
@@ -19,11 +20,8 @@ import { Country } from './../../../../model/Country';
     ]
 })
 export class AdminLookupCityComponent implements OnInit {
- 
-  people = ["ahmed"+ " "+"Egypt" , "Mohamed"+" "+"KSA" , " Mariam"+" "+"AUE"];
   @Input() countries: Array<Country>;
   @Input() cities: Array<City> ;
-  
   deletedCities = new Array<City>();
 
   message = '';
@@ -32,12 +30,11 @@ export class AdminLookupCityComponent implements OnInit {
   showAlert = false;
   alert = new Subject<string>();
   numberOfUnderEditCities = 0;
+  lang: LanguageComponent;
+  selectedCountry: Country;
 
-  constructor(private translate: TranslateService, private adminService: AdminService) { }
-
-
- 
-
+  constructor(private translate: TranslateService, private adminService: AdminService) {
+   }
   ngOnInit() {
   }
 
@@ -69,11 +66,9 @@ export class AdminLookupCityComponent implements OnInit {
       }
     );
     }
-  
-   
-
-    getCitiesByCountryId(countryId: number) {
-      this.adminService.getCitiesByCountryId(countryId).subscribe(
+    getCitiesOfCountry(country: Country) {
+      this.selectedCountry = country;
+      this.adminService.getCitiesByCountryId(this.selectedCountry.countryId).subscribe(
         next => {
             if (next && next.cities) {
               this.cities = new Array<City>();
@@ -100,7 +95,7 @@ export class AdminLookupCityComponent implements OnInit {
       this.cities.push(newCity);
       this.numberOfUnderEditCities++;
     }
-  
+
     applyEditedCity(editedCity: City){
       if (this.isValidCity(editedCity.tempEditingCity)){
         editedCity.clone(editedCity.tempEditingCity);
@@ -108,13 +103,13 @@ export class AdminLookupCityComponent implements OnInit {
         this.numberOfUnderEditCities--;
       }
     }
-  
+
     editCity(editedCity: City) {
       editedCity.markedAsEditingNow = true;
       editedCity.tempEditingCity.clone(editedCity);
       this.numberOfUnderEditCities++;
     }
-  
+
     deleteCity(deletedCity: City) {
       this.translate.get('MESSAGES.CONFIRM_DELETE_ITEM').subscribe((message: string) => {
         if (confirm(message)) {
@@ -127,7 +122,7 @@ export class AdminLookupCityComponent implements OnInit {
           }
     });
     }
-  
+
     isValidCity(checkedCity: City): boolean{
       if (checkedCity && checkedCity.nameEn && checkedCity.nameAr && checkedCity.code) {
         return true;
@@ -135,4 +130,4 @@ export class AdminLookupCityComponent implements OnInit {
       return false;
     }
   }
-  
+
