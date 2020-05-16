@@ -44,6 +44,11 @@ export class LookupsService {
     const adminLookupsRequest = new AdminLookupsRequest();
     adminLookupsRequest.cities = cities;
     adminLookupsRequest.deletedCities = deletedCities;
-    return this.http.put<AdminLookupsResponse>(environment.restUrl + '/api/admin/process-cities', adminLookupsRequest);
+    return this.http.put<AdminLookupsResponse>(environment.restUrl + '/api/admin/process-cities', adminLookupsRequest).
+    pipe(
+      map(data => {
+        return AdminLookupsResponse.fromHttp(data);
+      })
+    );
   }
 }

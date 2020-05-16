@@ -1,7 +1,7 @@
 import { City } from './City';
 export class Country {
 
-  countryId: number;
+  countryId: number = 0;
 
   nameEn: string;
   nameAr: string;
@@ -13,7 +13,7 @@ export class Country {
 
   tempEiditingCountry: Country;
 
-  static fromHttp(httpResponse: Country) {
+  static fromHttp(httpResponse: Country): Country {
     const country = new Country();
     country.countryId = httpResponse.countryId;
     country.nameEn = httpResponse.nameEn;

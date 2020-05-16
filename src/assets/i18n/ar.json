@@ -40,7 +40,8 @@
     "CURRENT_PAGE": "الصفحة الحالية",
     "ENGLISH_NAME": "الإسم الانجليزي",
     "ARABIC_NAME": "الإسم العربي",
-    "CODE": "الكود"
+    "CODE": "الكود",
+    "COUNT": "العدد"
   },
   "LOOKUPS":{
     "CHOOSE_COUNTRY": "اختر الدولة",

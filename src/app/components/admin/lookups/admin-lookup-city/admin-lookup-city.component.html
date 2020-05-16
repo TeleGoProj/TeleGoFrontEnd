@@ -14,16 +14,17 @@
                 <p class="card-text">{{'LOOKUPS.ADD_EDIT_DELETE' | translate}}</p>
                 <div class="pt-3"></div>
 
-                <button class="btn btn-secondary" (click)="addRow()"><i class="fa fa-plus"></i></button>
-                <button class="btn btn-success mx-5" (click)="submitAllCities()" [disabled]="numberOfUnderEditCities!=0">
+                <button class="btn btn-secondary" (click)="addRow()" [disabled]="!selectedCountry">
+                  <i class="fa fa-plus"></i>
+                </button>
+                <button class="btn btn-success mx-5" (click)="submitAllCities()" [disabled]="numberOfUnderEditCities!=0 || !selectedCountry">
                     <i class="fa fa-check" *ngIf="!serverIsProcessing"></i>
                     <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="serverIsProcessing"></span>
                   </button>
                   <div ngbDropdown class="d-inline-block">
-                    <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle *ngIf="!selectedCountry">{{'LOOKUPS.CHOOSE_COUNTRY' | translate}}</button>
+                    <button class="btn btn-outline-primary" id="chooseCountryForCityButton" ngbDropdownToggle *ngIf="!selectedCountry">{{'LOOKUPS.CHOOSE_COUNTRY' | translate}}</button>
                     <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle *ngIf="selectedCountry">{{selectedCountry.nameEn}}</button>
                     <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-
                       <button ngbDropdownItem  *ngFor="let country of countries"  (click) = "getCitiesOfCountry(country)"> {{country.nameEn}} </button>
                       </div>
                   </div>

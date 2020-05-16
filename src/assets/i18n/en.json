@@ -40,7 +40,8 @@
     "CURRENT_PAGE": "Current page",
     "ENGLISH_NAME": "English Name",
     "ARABIC_NAME": "Arabic Name",
-    "CODE": "Code"
+    "CODE": "Code",
+    "COUNT": "Count"
   },
   "LOOKUPS":{
     "CHOOSE_COUNTRY": "Choose Country",

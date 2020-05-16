@@ -53,6 +53,7 @@ export class AdminLookupCityComponent implements OnInit {
             this.serverIsProcessing = false;
             this.alert.next(message);
             this.alertType = 'success';
+            this.numberOfUnderEditCities = 0;
           });
           }
       },
@@ -66,6 +67,11 @@ export class AdminLookupCityComponent implements OnInit {
       }
     );
     }
+
+    getAllCities(){
+      this.getCitiesOfCountry(new Country())
+    }
+
     getCitiesOfCountry(country: Country) {
       this.selectedCountry = country;
       this.adminService.getCitiesByCountryId(this.selectedCountry.countryId).subscribe(
@@ -99,6 +105,7 @@ export class AdminLookupCityComponent implements OnInit {
     applyEditedCity(editedCity: City){
       if (this.isValidCity(editedCity.tempEditingCity)){
         editedCity.clone(editedCity.tempEditingCity);
+        editedCity.country = this.selectedCountry;
         editedCity.markedAsEditingNow = false;
         this.numberOfUnderEditCities--;
       }
@@ -115,9 +122,9 @@ export class AdminLookupCityComponent implements OnInit {
         if (confirm(message)) {
           const index: number = this.cities.indexOf(deletedCity);
           if (index !== -1) {
+              deletedCity.markedAsDeleted = true;
               this.cities.splice(index, 1);
               this.deletedCities.push(deletedCity);
-              this.numberOfUnderEditCities--;
             }
           }
     });
