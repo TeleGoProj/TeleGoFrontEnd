@@ -4,10 +4,13 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {AppComponent} from './app.component';
 import {HomePageComponent} from './components/home-page/home-page.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { ProfileService } from './services/profile.service';
 
 const routes: Routes = [
   {path : ':lang', component : AppComponent},
   {path : 'admin/lookups', component : AdminLookupComponent, resolve : {adminLookupsResponse : AdminService}},
+  {path : 'user/profile', component : UserProfileComponent, resolve : {profileResponse : ProfileService}},
   {path: '', component : HomePageComponent}
 ];
 

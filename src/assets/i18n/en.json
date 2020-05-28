@@ -5,7 +5,8 @@
     "PAGES": "Pages",
     "ABOUT": "About",
     "CONTACT": "Contact",
-    "ADMIN" : "Admin"
+    "ADMIN" : "Admin",
+    "PROFILE": "Profile"
   },
   "FOOTER": {
     "COPYRIGHT": "Copyright",

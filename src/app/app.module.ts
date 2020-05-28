@@ -19,6 +19,11 @@ import { AdminLookupCityComponent } from './components/admin/lookups/admin-looku
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { PaginatePipe } from './components/pagination/paginate.pipe';
+import { ImgPassComponent } from './components/user-profile/img-pass/img-pass.component';
+import { BasicInfoComponent } from './components/user-profile/basic-info/basic-info.component';
+import { FeaturesComponent } from './components/user-profile/features/features.component';
+import { AboutMeComponent } from './components/user-profile/about-me/about-me.component';
+import { UserProfileComponent } from './components/user-profile/user-profile.component';
 
 
 // AoT requires an exported function for factories
@@ -38,7 +43,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     AdminLookupCountryComponent,
     AdminLookupCityComponent,
     PaginationComponent,
-    PaginatePipe
+    PaginatePipe,
+    ImgPassComponent,
+    BasicInfoComponent,
+    FeaturesComponent,
+    AboutMeComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,

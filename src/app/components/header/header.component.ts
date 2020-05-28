@@ -17,4 +17,8 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['admin/lookups']);
   }
 
+  navigateToProfile(){
+    this.router.navigate(['user/profile']);
+  }
+
 }

@@ -1,0 +1,121 @@
+<section>
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+            <div class="card col col-lg-10">
+                <h2 class="card-header text-center p-3 mb-2 bg-info text-white">Basic Info</h2>
+                <div class="card-body">
+                    <div class="row ">
+                        <div class="col">
+                            <div class="form-group required">
+                                <label for="text" class="control-label">First Name </label>
+                                <input type="text" class="form-control" name="firstname" required
+                                    placeholder="first name">
+
+                            </div>
+
+                            <div class="form-group required">
+                                <label for="email" class="control-label">Email Address </label>
+                                <input type="email" class="form-control" name="email" required
+                                    placeholder="email address">
+                            </div>
+                            <br>
+                        </div>
+                        <!--end first col-->
+
+                        <!--second col-->
+
+                        <div class="col">
+                            <div class="form-group required">
+                                <label for="text" class="control-label">Last Name </label>
+                                <input type="text" class="form-control" name="lastname" required
+                                    placeholder="last name">
+                            </div>
+
+                            <div class="form-group required">
+                                <label for="text" class="control-label">Address </label>
+                                <input type="text" class="form-control" name="address" required placeholder=" address">
+
+                            </div>
+
+                        </div>
+                        <!--end second col-->
+                    </div>
+                    <!--end row-->
+                    <!--phone droplist-->
+                    <div class="form-group required">
+                        <label for="text" class="control-label">LandLine Phone </label>
+                        <div class="row">
+                            <div class="col">
+                                <div class="btn-group show-tick countrypicker f16">
+                                    <button type="button" class="btn btn-default dropdown-toggle btn-outline-primary"
+                                        data-toggle="dropdown" aria-expanded="false">
+                                        <span class="selection">Choose Country</span><span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu" id="choose2" x-placement="bottom-start"
+                                        style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 38px, 0px);">
+                                        <input class="form-control" id="myInputDrop" type="text"
+                                            placeholder="Search...">
+                                        <li>
+                                            <a class="dropdown-item cursor-hand">
+                                                <span class="inline-flag flag"></span>
+                                                <span class="inline-flag flag eg"></span>
+                                                <span class="text">Egypt</span>
+                                                <span class="text">(20)</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item cursor-hand">
+                                                <span class="inline-flag flag"></span>
+                                                <span class="inline-flag flag us"></span>
+                                                <span class="text">United States</span>
+                                                <span class="text">(+1)</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item cursor-hand">
+                                                <span class="inline-flag flag"></span>
+                                                <span class="inline-flag flag fr"></span>
+                                                <span class="text">France</span>
+                                                <span class="text">(+33)</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item cursor-hand">
+                                                <span class="inline-flag flag"></span>
+                                                <span class="inline-flag flag de"></span>
+                                                <span class="text">المنيا</span>
+                                                <span class="text">(+49)</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="dropdown-item cursor-hand">
+                                                <span class="inline-flag flag"></span>
+                                                <span class="inline-flag flag in"></span>
+                                                <span class="text">الهند</span>
+                                                <span class="text">(+91)</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                    <div class="px-1"></div>
+                                    <input type="tel" id="phone" name="phone" pattern="^[0-9]{2,3}$" minlength="2"
+                                        maxlength="3" placeholder="City Code" class="form-control " style="width: 55px;"
+                                        required>
+                                    <div class="mx-2"></div>
+                                    <input type="tel" id="phone" name="phone" pattern="^[0-9]{7,8}$" minlength="7"
+                                        maxlength="8" placeholder="Phone" class="form-control " style="width: 100px;"
+                                        required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--end phone-->
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
