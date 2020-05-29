@@ -8,7 +8,7 @@ export class PhoneUser {
     lName: string;
     organizationType: number;
     email: string;;
-    imagePath: string;;
+    image: any;;
     address: string;;
     mobilePhone: string;;
     organizationName: string;;
@@ -25,7 +25,7 @@ export class PhoneUser {
         user.lName = httpResponse.lName;
         user.organizationType = httpResponse.organizationType;
         user.email = httpResponse.email;
-        user.imagePath = httpResponse.imagePath;
+        user.image = httpResponse.image;
         user.address = httpResponse.address;
         user.mobilePhone = httpResponse.mobilePhone;
         user.organizationName = httpResponse.organizationName;

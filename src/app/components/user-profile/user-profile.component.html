@@ -1,4 +1,4 @@
-<app-img-pass></app-img-pass>
+<app-img-pass [user]="user"></app-img-pass>
 
 <div class="pt-5"></div>
 <app-basic-info></app-basic-info>
@@ -8,3 +8,14 @@
 
 <div class="pt-5"></div>
 <app-about-me></app-about-me>
+
+<div class="py-3"></div>
+<div class="cob=ntainer">
+    <div class="row align-items-center justify-content-center">
+        <div class="form-group required">
+            <div class="form-group text-left">
+                <input class="btn btn-primary" type="button" value="{{'PROFILE.SAVE' | translate}}" (click)="submitProfile()">
+            </div>
+        </div>
+    </div>
+</div>

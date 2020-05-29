@@ -10,20 +10,19 @@
                             <h5 class="card-title">Your image, login credentials</h5>
                             <p class="card-text">Upload/view image, and update password</p>
                             <div class="pt-3"></div>
-                            <img src="img\icon\person.png" alt="User Image" class="img-thumbnail"
-                                id="preview-user-image-thumbnail">
+                            <img [src]="profileImage" alt="User Image" class="img-thumbnail"
+                                id="preview-user-image-thumbnail" *ngIf="profileImage">
+                            <img src="assets/img/icon/person.png" alt="User Image" class="img-thumbnail"
+                                id="preview-user-image-thumbnail" *ngIf="!profileImage">
+                                
                             <div class="pt-3"></div>
                             <button onclick="$('#user-image-upload-button').click();" class="btn btn-primary"><i
                                     class="fas fa-cloud-upload-alt"></i></button>
                             <form class="d-none">
                                 <div class="file-field">
-                                    <div class="btn btn-primary btn-sm float-left">
-                                        <span>Choose file</span>
-                                        <input type="file">
-                                    </div>
                                     <div class="file-path-wrapper">
                                         <input type="file" id="user-image-upload-button"
-                                            onchange="previewImage(this, 'preview-user-image-thumbnail');">
+                                        (change)="onFileSelected($event, 'preview-user-image-thumbnail');">
                                     </div>
                                 </div>
                             </form>

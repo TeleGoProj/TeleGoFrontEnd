@@ -49,5 +49,8 @@
     "CITY_LOOKUP": "City Lookup",
     "CITY_MANAGEMENT": "City Management",
     "ADD_EDIT_DELETE": "Add, edit and delete"
+  },
+  "PROFILE":{
+    "SAVE": "Save"
   }
 }

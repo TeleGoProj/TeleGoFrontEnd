@@ -49,5 +49,8 @@
     "CITY_LOOKUP": "إختيارات المدينة",
     "CITY_MANAGEMENT": "إدارة المدن",
     "ADD_EDIT_DELETE": "اضف او عدل او امسح"
+  },
+  "PROFILE":{
+    "SAVE": "حفظ"
   }
 }

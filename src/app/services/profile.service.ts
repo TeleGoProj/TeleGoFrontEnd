@@ -5,11 +5,15 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { PhoneUser } from '../model/PhoneUser';
+import { ProfileRequest } from '../model/request/ProfileRequest';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProfileService implements Resolve<Observable<ProfileResponse>>{
+
+  uploadedImage: FormData;
 
   constructor(private http: HttpClient) { }
 
@@ -24,5 +28,25 @@ export class ProfileService implements Resolve<Observable<ProfileResponse>>{
 
   resolve() {
     return this.getProfileData(1);
+  }
+
+  submitProfile(user: PhoneUser){
+    const profileRequest = new ProfileRequest();
+    profileRequest.user = user;
+    this.http.post<ProfileResponse>(environment.restUrl + '/api/profile/process-profile', profileRequest).subscribe(
+      submitted =>{
+        this.http.post<ProfileResponse>(environment.restUrl + '/api/profile/upload-image/' + user.userId, this.uploadedImage).subscribe(
+          imageUploaded =>{
+
+          },
+          imageUploadError =>{
+
+          }
+        )
+      },
+      subitError =>{
+        
+      }  
+    );
   }
 }
