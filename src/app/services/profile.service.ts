@@ -30,23 +30,13 @@ export class ProfileService implements Resolve<Observable<ProfileResponse>>{
     return this.getProfileData(1);
   }
 
-  submitProfile(user: PhoneUser){
+  submitProfile(user: PhoneUser): Observable<ProfileResponse>{
     const profileRequest = new ProfileRequest();
     profileRequest.user = user;
-    this.http.post<ProfileResponse>(environment.restUrl + '/api/profile/process-profile', profileRequest).subscribe(
-      submitted =>{
-        this.http.post<ProfileResponse>(environment.restUrl + '/api/profile/upload-image/' + user.userId, this.uploadedImage).subscribe(
-          imageUploaded =>{
+    return this.http.post<ProfileResponse>(environment.restUrl + '/api/profile/process-profile', profileRequest);
+  }
 
-          },
-          imageUploadError =>{
-
-          }
-        )
-      },
-      subitError =>{
-        
-      }  
-    );
+  uploadImage(user: PhoneUser): Observable<ProfileResponse>{
+    return this.http.post<ProfileResponse>(environment.restUrl + '/api/profile/upload-image/' + user.userId, this.uploadedImage);
   }
 }

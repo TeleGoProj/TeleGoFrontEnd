@@ -28,17 +28,11 @@ export class ImgPassComponent implements OnInit {
     const uploadedImageData = new FormData();
     uploadedImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
     this.profileService.uploadedImage = uploadedImageData;
-  }
-
-  previewImage(input, preview_component_id) {
-    // if (input.files && input.files[0]) {		
-    //   var reader = new FileReader();			
-
-
-    //   reader.onload = function(e) {	
-    //   $('#' + preview_component_id).attr('src', e.target.result);	
-    //   }
-    //   reader.readAsDataURL(input.files[0]);	
-    // }	
+    
+    var reader = new FileReader();      
+    reader.readAsDataURL(this.selectedFile); 
+    reader.onload = (_event) => { 
+      this.profileImage = reader.result; 
+    }
   }
 }

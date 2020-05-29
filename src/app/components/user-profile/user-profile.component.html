@@ -1,3 +1,7 @@
+<div class="w-50 p-3 mx-auto">
+    <ngb-alert *ngIf="message" [type]="alertType" (close)="message = null">{{ message }}</ngb-alert>
+</div>
+
 <app-img-pass [user]="user"></app-img-pass>
 
 <div class="pt-5"></div>

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { PhoneUser } from 'src/app/model/PhoneUser';
 import { ActivatedRoute } from '@angular/router';
 import { ProfileService } from 'src/app/services/profile.service';
+import { TranslateService } from '@ngx-translate/core';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-user-profile',
@@ -11,8 +13,12 @@ import { ProfileService } from 'src/app/services/profile.service';
 export class UserProfileComponent implements OnInit {
 
   user : PhoneUser;
+  message = '';
+  alertType = '';
+  serverIsProcessing = false;
+  alert = new Subject<string>();
 
-  constructor(private route: ActivatedRoute, private profileService: ProfileService) { 
+  constructor(private route: ActivatedRoute, private profileService: ProfileService, private translate: TranslateService) { 
     console.log('UserProfileCompoent');
   }
 
@@ -21,14 +27,42 @@ export class UserProfileComponent implements OnInit {
   }
 
   submitProfile(){
-    this.profileService.submitProfile(this.user)/*.subscribe(
+    this.profileService.submitProfile(this.user).subscribe(
       next =>{
-        alert('Done');
-      }, 
+        this.profileService.uploadImage(this.user).subscribe(
+          next2 =>{
+            this.showSuccessfulMessage();
+          },
+          error =>{
+            this.showErrorMessage();
+          }
+        );
+      },
       error =>{
-        alert('Error');
+        this.showErrorMessage();
       }
-    )*/;
+    );
   }
 
+  showSuccessfulMessage(){
+    this.translate.get('MESSAGES.PROCESSED_SUCCESSFULLY').subscribe(
+      (message: string) =>{
+        this.message = message;
+        this.serverIsProcessing = false;
+        this.alert.next(message);
+        this.alertType = 'success';
+      }
+    );
+  }
+
+  showErrorMessage(){
+    this.translate.get('MESSAGES.AN_ERROR_HAPPENED').subscribe(
+      (message: string) =>{
+        this.message = message;
+        this.serverIsProcessing = false;
+        this.alert.next(message);
+        this.alertType = 'danger';
+      }
+    );
+  }
 }
