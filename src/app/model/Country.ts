@@ -6,6 +6,8 @@ export class Country {
   nameEn: string;
   nameAr: string;
   code: string;
+  phoneCode: string;
+  uiStyle: string;
   markedAsDeleted = false;
   markedAsEditingNow = false;
 
@@ -19,6 +21,8 @@ export class Country {
     country.nameEn = httpResponse.nameEn;
     country.nameAr = httpResponse.nameAr;
     country.code = httpResponse.code;
+    country.phoneCode = httpResponse.phoneCode;
+    country.uiStyle = httpResponse.uiStyle;
     country.cities = httpResponse.cities;
     country.tempEiditingCountry = new Country();
     return country;
@@ -29,6 +33,8 @@ export class Country {
     this.nameEn = source.nameEn;
     this.nameAr = source.nameAr;
     this.code = source.code;
+    this.phoneCode = source.phoneCode;
+    this.uiStyle = source.uiStyle;
     this.cities = source.cities;
   }
 }

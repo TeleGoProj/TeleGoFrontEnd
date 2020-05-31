@@ -2,10 +2,10 @@
     <ngb-alert *ngIf="message" [type]="alertType" (close)="message = null">{{ message }}</ngb-alert>
 </div>
 
-<app-img-pass [user]="user"></app-img-pass>
+<app-img-pass [profileRequest]="profileRequest"></app-img-pass>
 
 <div class="pt-5"></div>
-<app-basic-info></app-basic-info>
+<app-basic-info [profileRequest]="profileRequest"></app-basic-info>
 
 <div class="pt-5"></div>
 <app-features></app-features>

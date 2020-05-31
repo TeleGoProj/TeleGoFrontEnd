@@ -26,9 +26,11 @@
         <table id="countries-table" class="table table-striped table-hover table-responsive-lg">
           <thead>
             <tr>
-              <th class="th-sm">English Name</th>
-              <th class="th-sm">Arabic Name</th>
-              <th class="th-sm">Code</th>
+              <th class="th-sm">{{'GENERAL.ENGLISH_NAME' | translate}}</th>
+              <th class="th-sm">{{'GENERAL.ARABIC_NAME' | translate}}</th>
+              <th class="th-sm">{{'GENERAL.CODE' | translate}}</th>
+              <th class="th-sm">{{'GENERAL.PHONE_CODE' | translate}}</th>
+              <th class="th-sm">{{'GENERAL.UI_STYLE' | translate}}</th>
               <th></th>
               <th></th>
               <th></th>
@@ -52,6 +54,18 @@
                 <span [hidden]="country.markedAsEditingNow">{{country.code}}</span>
                 <input type="text"  [hidden]="!country.markedAsEditingNow" [(ngModel)]="country.tempEiditingCountry.code"
                 class="form-control" [@fadeInOut] required #code="ngModel"/>
+                <div *ngIf="code.errors?.required && code.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
+              </td>
+              <td>
+                <span [hidden]="country.markedAsEditingNow">{{country.phoneCode}}</span>
+                <input type="text"  [hidden]="!country.markedAsEditingNow" [(ngModel)]="country.tempEiditingCountry.phoneCode"
+                class="form-control" [@fadeInOut] #code="ngModel"/>
+                <div *ngIf="code.errors?.required && code.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
+              </td>
+              <td>
+                <span [hidden]="country.markedAsEditingNow">{{country.uiStyle}}</span>
+                <input type="text"  [hidden]="!country.markedAsEditingNow" [(ngModel)]="country.tempEiditingCountry.uiStyle"
+                class="form-control" [@fadeInOut] #code="ngModel"/>
                 <div *ngIf="code.errors?.required && code.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
               </td>
               <td>

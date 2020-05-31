@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ProfileService } from 'src/app/services/profile.service';
 import { PhoneUser } from 'src/app/model/PhoneUser';
+import { ProfileRequest } from 'src/app/model/request/ProfileRequest';
 
 @Component({
   selector: 'app-img-pass',
@@ -14,13 +15,13 @@ export class ImgPassComponent implements OnInit {
   profileImage: any;
 
   @Input()
-  user: PhoneUser;
+  profileRequest: ProfileRequest;
 
   constructor(private http: HttpClient, private profileService: ProfileService) { }
 
   ngOnInit() {
-    if(this.user.image)
-    this.profileImage = 'data:image/jpeg;base64,' + this.user.image;
+    if(this.profileRequest.user.image)
+    this.profileImage = 'data:image/jpeg;base64,' + this.profileRequest.user.image;
   }
 
   onFileSelected(event) {

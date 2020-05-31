@@ -41,6 +41,8 @@
     "CURRENT_PAGE": "الصفحة الحالية",
     "ENGLISH_NAME": "الإسم الانجليزي",
     "ARABIC_NAME": "الإسم العربي",
+    "PHONE_CODE": "مفتاح التليفون",
+    "UI_STYLE": "شكل العرض",
     "CODE": "الكود",
     "COUNT": "العدد"
   },
@@ -51,6 +53,17 @@
     "ADD_EDIT_DELETE": "اضف او عدل او امسح"
   },
   "PROFILE":{
-    "SAVE": "حفظ"
+    "YOUR_IMAGE_LOGIN_CREDENTIALS": "صورتك و بيانات الدخول",
+    "UPLOAD_VIEW_IMAGE_AND_UPDATE_PASSWORD": "رفع الصورة و تحديث كلمة المرور",
+    "SAVE": "حفظ",
+    "USERNAME": "اسم المستخدم",
+    "PASSWORD": "كلمة المرور",
+    "CONFIRM_PASSWORD": "تأكيد كلمة المرور",
+    "BASIC_INFO": "المعلومات الأساسية",
+    "FIRST_NAME": "الإسم الاول",
+    "LAST_NAME": "الإسم الاخير",
+    "EMAIL_ADDRESS": "البريد الإليكتروني",
+    "ADDRESS": "العنوان",
+    "LANDLINE_PHONE": "التليفون"
   }
 }

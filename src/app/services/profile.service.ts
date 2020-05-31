@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { PhoneUser } from '../model/PhoneUser';
 import { ProfileRequest } from '../model/request/ProfileRequest';
+import { Country } from '../model/Country';
 
 @Injectable({
   providedIn: 'root'
@@ -30,13 +31,31 @@ export class ProfileService implements Resolve<Observable<ProfileResponse>>{
     return this.getProfileData(1);
   }
 
-  submitProfile(user: PhoneUser): Observable<ProfileResponse>{
-    const profileRequest = new ProfileRequest();
-    profileRequest.user = user;
+  submitProfile(profileRequest: ProfileRequest): Observable<ProfileResponse>{
     return this.http.post<ProfileResponse>(environment.restUrl + '/api/profile/process-profile', profileRequest);
   }
 
-  uploadImage(user: PhoneUser): Observable<ProfileResponse>{
-    return this.http.post<ProfileResponse>(environment.restUrl + '/api/profile/upload-image/' + user.userId, this.uploadedImage);
+  uploadImage(profileRequest: ProfileRequest): Observable<ProfileResponse>{
+    return this.http.post<ProfileResponse>(environment.restUrl + '/api/profile/upload-image/' + profileRequest.user.userId, this.uploadedImage);
+  }
+  
+  getAllCountriesLookups(): Observable<Array<Country>> {
+    return this.http.get<Array<Country>>(environment.restUrl + '/api/profile/get-all-countries').
+    pipe(
+      map(countriesResponse => {
+        let allCountries = new Array<Country>();
+        if(countriesResponse)
+        {
+          for (const country of countriesResponse) {
+            allCountries.push(Country.fromHttp(country));
+          }
+        }
+        return allCountries;
+      })
+    );
+  }
+
+  updateSelectedCountry(){
+
   }
 }

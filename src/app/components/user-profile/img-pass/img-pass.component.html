@@ -2,13 +2,13 @@
     <div class="container">
         <div class="row align-items-center justify-content-center">
             <div class="card col col-lg-10">
-                <h2 class="card-header text-center p-3 mb-2 bg-info text-white">Profile</h2>
+                <h2 class="card-header text-center p-3 mb-2 bg-info text-white">{{'HEADER.PROFILE' | translate}}</h2>
                 <div class="card-body">
                     <div class="row align-items-center">
                         <div class="col col-lg-5 text-center">
                             <!--first col-->
-                            <h5 class="card-title">Your image, login credentials</h5>
-                            <p class="card-text">Upload/view image, and update password</p>
+                            <h5 class="card-title">{{'PROFILE.YOUR_IMAGE_LOGIN_CREDENTIALS' | translate}}</h5>
+                            <p class="card-text">{{'PROFILE.UPLOAD_VIEW_IMAGE_AND_UPDATE_PASSWORD' | translate}}</p>
                             <div class="pt-3"></div>
                             <img [src]="profileImage" alt="User Image" class="img-thumbnail"
                                 id="preview-user-image-thumbnail" *ngIf="profileImage">
@@ -33,16 +33,22 @@
 
                         <div class="col col-lg-5">
                             <div class="form-group required">
-                                <label for="password" class="control-label">Password </label>
-                                <input type="password" class="form-control" name="password" required
-                                    placeholder="password">
+                                <label for="username" class="control-label">{{'PROFILE.USERNAME' | translate}} </label>
+                                <input type="text" class="form-control" name="username" required
+                                    placeholder="{{'PROFILE.USERNAME' | translate}}" [disabled]="profileRequest.user.userId"
+                                    [value]="profileRequest.user.loginName">
                             </div>
 
                             <div class="form-group required">
-                                <label for="password" class="control-label"> Confirm Password </label>
+                                <label for="password" class="control-label"> {{'PROFILE.PASSWORD' | translate}} </label>
                                 <input type="password" class="form-control" name="password" required
-                                    placeholder=" confirm password">
+                                    placeholder="{{'PROFILE.PASSWORD' | translate}}">
+                            </div>
 
+                            <div class="form-group required">
+                                <label for="confirm-password" class="control-label"> {{'PROFILE.CONFIRM_PASSWORD' | translate}} </label>
+                                <input type="password" class="form-control" name="confirm-password" required
+                                    placeholder="{{'PROFILE.CONFIRM_PASSWORD' | translate}}">
                             </div>
 
 

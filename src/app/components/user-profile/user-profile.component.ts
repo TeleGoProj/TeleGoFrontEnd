@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ProfileService } from 'src/app/services/profile.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Subject } from 'rxjs';
+import { ProfileRequest } from 'src/app/model/request/ProfileRequest';
 
 @Component({
   selector: 'app-user-profile',
@@ -12,7 +13,7 @@ import { Subject } from 'rxjs';
 })
 export class UserProfileComponent implements OnInit {
 
-  user : PhoneUser;
+  profileRequest = new ProfileRequest();
   message = '';
   alertType = '';
   serverIsProcessing = false;
@@ -23,13 +24,13 @@ export class UserProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.user = this.route.snapshot.data.profileResponse.user;
+    this.profileRequest.user = this.route.snapshot.data.profileResponse.user;
   }
 
   submitProfile(){
-    this.profileService.submitProfile(this.user).subscribe(
+    this.profileService.submitProfile(this.profileRequest).subscribe(
       next =>{
-        this.profileService.uploadImage(this.user).subscribe(
+        this.profileService.uploadImage(this.profileRequest).subscribe(
           next2 =>{
             this.showSuccessfulMessage();
           },

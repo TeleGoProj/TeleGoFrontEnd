@@ -1,3 +1,5 @@
+import { LandlinePhone } from './LandlinePhone';
+
 export class PhoneUser {
     
     userId: number;
@@ -14,6 +16,7 @@ export class PhoneUser {
     organizationName: string;;
     userStatus: number;
     userType: number;
+    landLinePhone: LandlinePhone;
 
     static fromHttp(httpResponse: PhoneUser): PhoneUser {
         const user = new PhoneUser();
@@ -31,6 +34,7 @@ export class PhoneUser {
         user.organizationName = httpResponse.organizationName;
         user.userStatus = httpResponse.userStatus;
         user.userType = httpResponse.userType;
+        user.landLinePhone = httpResponse.landLinePhone;
         return user;
     }
 

@@ -41,6 +41,8 @@
     "CURRENT_PAGE": "Current page",
     "ENGLISH_NAME": "English Name",
     "ARABIC_NAME": "Arabic Name",
+    "PHONE_CODE": "Phone Code",
+    "UI_STYLE": "UI Style",
     "CODE": "Code",
     "COUNT": "Count"
   },
@@ -51,6 +53,17 @@
     "ADD_EDIT_DELETE": "Add, edit and delete"
   },
   "PROFILE":{
-    "SAVE": "Save"
+    "YOUR_IMAGE_LOGIN_CREDENTIALS": "Your image, login credentials",
+    "UPLOAD_VIEW_IMAGE_AND_UPDATE_PASSWORD": "Upload/view image, and update password",
+    "SAVE": "Save",
+    "USERNAME": "Username",
+    "PASSWORD": "Password",
+    "CONFIRM_PASSWORD": "Confirm Password",
+    "BASIC_INFO": "Basic Info",
+    "FIRST_NAME": "First Name",
+    "LAST_NAME": "Last Name",
+    "EMAIL_ADDRESS": "Email Address",
+    "ADDRESS": "Address",
+    "LANDLINE_PHONE": "LandLine Phone"
   }
 }

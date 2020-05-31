@@ -113,3 +113,8 @@ font-size: 48px;
 max-height: 90px;
 overflow-y: hidden;
 }
+
+.dropdown .dropdown-menu, .dropdown .dropdown-menu .dropdown-item{
+  color: black !important;
+  background-color: white;
+}
