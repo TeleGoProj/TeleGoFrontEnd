@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PhoneUser } from 'src/app/model/PhoneUser';
 import { Country } from 'src/app/model/Country';
 import { ProfileService } from 'src/app/services/profile.service';
 import { ProfileRequest } from 'src/app/model/request/ProfileRequest';
@@ -31,5 +30,9 @@ export class BasicInfoComponent implements OnInit {
 
       }
     );
+  }
+
+  updateSelectedCountry(country: Country){
+    this.profileRequest.phoneCountry = country;
   }
 }

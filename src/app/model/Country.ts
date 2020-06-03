@@ -17,6 +17,10 @@ export class Country {
 
   static fromHttp(httpResponse: Country): Country {
     const country = new Country();
+
+    if(!httpResponse)
+    return country;
+
     country.countryId = httpResponse.countryId;
     country.nameEn = httpResponse.nameEn;
     country.nameAr = httpResponse.nameAr;

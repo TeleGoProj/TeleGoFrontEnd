@@ -7,6 +7,7 @@ export class City {
   nameEn: string;
   nameAr: string;
   code: string;
+  phoneCode: string;
 
   markedAsDeleted = false;
   markedAsEditingNow = false;
@@ -18,10 +19,15 @@ export class City {
 
   static fromHttp(httpResponse: City) {
     const city = new City();
+
+    if(!httpResponse)
+    return httpResponse;
+
     city.cityId = httpResponse.cityId;
     city.nameEn = httpResponse.nameEn;
     city.nameAr = httpResponse.nameAr;
     city.code = httpResponse.code;
+    city.phoneCode = httpResponse.phoneCode;
     city.tempEditingCity = new City();
 
     city.country = Country.fromHttp(httpResponse.country);
@@ -33,7 +39,7 @@ export class City {
     this.nameEn = source.nameEn;
     this.nameAr = source.nameAr;
     this.code = source.code;
-    
+    this.phoneCode = source.phoneCode;
   }
 
 

@@ -8,6 +8,7 @@ import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/r
 import { PhoneUser } from '../model/PhoneUser';
 import { ProfileRequest } from '../model/request/ProfileRequest';
 import { Country } from '../model/Country';
+import { Feature } from '../model/Feature';
 
 @Injectable({
   providedIn: 'root'
@@ -54,8 +55,20 @@ export class ProfileService implements Resolve<Observable<ProfileResponse>>{
       })
     );
   }
-
-  updateSelectedCountry(){
-
+  
+  getAllFeaturesLookups(): Observable<Array<Feature>> {
+    return this.http.get<Array<Feature>>(environment.restUrl + '/api/profile/get-all-features').
+    pipe(
+      map(featuresResponse => {
+        let allFeatures = new Array<Feature>();
+        if(featuresResponse)
+        {
+          for (const feature of featuresResponse) {
+            allFeatures.push(Feature.fromHttp(feature));
+          }
+        }
+        return allFeatures;
+      })
+    );
   }
 }

@@ -5,9 +5,9 @@ export class PhoneUser {
     userId: number;
     loginName: string;
     loginPassword: string;
-    fName: string;
-    mName: string;
-    lName: string;
+    firstName: string;
+    middleName: string;
+    lastName: string;
     organizationType: number;
     email: string;;
     image: any;;
@@ -20,12 +20,16 @@ export class PhoneUser {
 
     static fromHttp(httpResponse: PhoneUser): PhoneUser {
         const user = new PhoneUser();
+
+        if(!httpResponse)
+        return user;
+
         user.userId = httpResponse.userId;
         user.loginName = httpResponse.loginName;
         user.loginPassword = httpResponse.loginPassword;
-        user.fName = httpResponse.fName;
-        user.mName = httpResponse.mName;
-        user.lName = httpResponse.lName;
+        user.firstName = httpResponse.firstName;
+        user.middleName = httpResponse.middleName;
+        user.lastName = httpResponse.lastName;
         user.organizationType = httpResponse.organizationType;
         user.email = httpResponse.email;
         user.image = httpResponse.image;
@@ -34,7 +38,7 @@ export class PhoneUser {
         user.organizationName = httpResponse.organizationName;
         user.userStatus = httpResponse.userStatus;
         user.userType = httpResponse.userType;
-        user.landLinePhone = httpResponse.landLinePhone;
+        user.landLinePhone = LandlinePhone.fromHttp(httpResponse.landLinePhone);
         return user;
     }
 

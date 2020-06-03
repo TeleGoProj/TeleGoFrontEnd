@@ -13,6 +13,7 @@ export class ImgPassComponent implements OnInit {
 
   selectedFile: File;
   profileImage: any;
+  confirmPassword = '';
 
   @Input()
   profileRequest: ProfileRequest;

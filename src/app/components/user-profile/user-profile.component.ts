@@ -13,18 +13,37 @@ import { ProfileRequest } from 'src/app/model/request/ProfileRequest';
 })
 export class UserProfileComponent implements OnInit {
 
-  profileRequest = new ProfileRequest();
+  profileRequest = this.createEmptyProfileRequest();
   message = '';
   alertType = '';
   serverIsProcessing = false;
   alert = new Subject<string>();
 
   constructor(private route: ActivatedRoute, private profileService: ProfileService, private translate: TranslateService) { 
-    console.log('UserProfileCompoent');
   }
 
   ngOnInit() {
-    this.profileRequest.user = this.route.snapshot.data.profileResponse.user;
+    const user = this.route.snapshot.data.profileResponse.user;
+    this.profileRequest = this.createProfileRequestFromUser(user);
+  }
+
+  createEmptyProfileRequest(): ProfileRequest {
+    const profileRequest = new ProfileRequest();
+    return profileRequest;
+  }
+
+  createProfileRequestFromUser(user: PhoneUser): ProfileRequest {
+    const profileRequest = new ProfileRequest();
+
+    const city = user.landLinePhone.box.cabin.area.city;
+    const cityPhoneCode = city.phoneCode;
+    const phoneCountry = city.country;
+
+    profileRequest.cityPhoneCode = cityPhoneCode;
+    profileRequest.phoneCountry = phoneCountry;
+    profileRequest.user = user;
+
+    return profileRequest;
   }
 
   submitProfile(){
