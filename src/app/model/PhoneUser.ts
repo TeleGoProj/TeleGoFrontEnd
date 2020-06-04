@@ -1,4 +1,5 @@
 import { LandlinePhone } from './LandlinePhone';
+import { Feature } from './Feature';
 
 export class PhoneUser {
     
@@ -17,6 +18,7 @@ export class PhoneUser {
     userStatus: number;
     userType: number;
     landLinePhone: LandlinePhone;
+    features = new Array<Feature>();
 
     static fromHttp(httpResponse: PhoneUser): PhoneUser {
         const user = new PhoneUser();
@@ -39,6 +41,13 @@ export class PhoneUser {
         user.userStatus = httpResponse.userStatus;
         user.userType = httpResponse.userType;
         user.landLinePhone = LandlinePhone.fromHttp(httpResponse.landLinePhone);
+
+        if(httpResponse.features){
+            for (const feature of httpResponse.features) {
+                user.features.push(feature);
+            }
+        }
+
         return user;
     }
 

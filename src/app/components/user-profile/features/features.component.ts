@@ -13,7 +13,7 @@ export class FeaturesComponent implements OnInit {
   @Input()
   profileRequest: ProfileRequest;
 
-  allFeatures = new Array<Feature>();
+  allFeatures = new Array<Array<Feature>>();
   
   constructor(private profileService: ProfileService) { }
 
@@ -26,11 +26,21 @@ export class FeaturesComponent implements OnInit {
     let allFeatures = new Array<Feature>();
     this.profileService.getAllFeaturesLookups().subscribe(
       data => {
-        this.allFeatures = data;
+        this.allFeatures = this.sliceFeaturesArray(data, 3);
       },
       error =>{
 
       }
     );
+  }
+
+  sliceFeaturesArray(array: Array<Feature>, size: number): Array<Array<Feature>>{
+    const arraySlices = Array<Array<Feature>>();
+    if(array){
+      for (var i=0; i<array.length; i+=size) {
+        arraySlices.push(array.slice(i,i+size));
+      }
+    }
+    return arraySlices;
   }
 }

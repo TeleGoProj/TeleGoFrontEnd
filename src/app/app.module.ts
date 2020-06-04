@@ -24,6 +24,7 @@ import { BasicInfoComponent } from './components/user-profile/basic-info/basic-i
 import { FeaturesComponent } from './components/user-profile/features/features.component';
 import { AboutMeComponent } from './components/user-profile/about-me/about-me.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { FeaturePipePipe } from './components/user-profile/features/feature-pipe.pipe';
 
 
 // AoT requires an exported function for factories
@@ -48,7 +49,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     BasicInfoComponent,
     FeaturesComponent,
     AboutMeComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    FeaturePipePipe
   ],
   imports: [
     BrowserModule,
