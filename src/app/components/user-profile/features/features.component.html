@@ -14,12 +14,11 @@
                         <input type="submit">
                     </form>
                     <div class="py-3"></div>
-
                     <!--table of Icons-->
                     <div class="row  align-items-center justify-content-md-center">
                         <div class="col col-lg-7">
-                            <table class="table" *ngIf="profileRequest.user.features">
-                                <tr *ngFor="let row of sliceFeaturesArray(profileRequest.user.features)">
+                            <table class="table">
+                                <tr *ngFor="let row of sliceFeaturesArray(profileRequest.user.features, 3)">
                                     <td *ngFor="let feature of row">
                                         <span class="d-flex justify-content-center feature"> <i
                                                 [class]="'fas fa-'+feature.uiStyle"></i>
