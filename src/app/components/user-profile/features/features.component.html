@@ -2,28 +2,50 @@
     <div class="container ">
         <div class="row align-items-center justify-content-center">
             <div class="card col col-lg-10">
-                <h2 class="card-header text-center p-3 mb-2 bg-info text-white">Features</h2>
+                <h2 class="card-header text-center p-3 mb-2 bg-info text-white">{{'PROFILE.FEATURES' | translate}}</h2>
                 <div class="card-body">
                     <!--search autocompelete-->
 
                     <form autocomplete="off" action="/action_page.php"
                         class="row align-items-center justify-content-center">
                         <div class="autocomplete align-items-center" style="width:500px;">
-                            <input id="myInput" type="text" name="myfeature" placeholder="Choose or add new feature">
+                            <input id="myInput" type="text" name="myfeature" [(ngModel)]="searchFeatureName" placeholder="Choose or add new feature"
+                            (keyup)="filterFeatures()">
                         </div>
                         <input type="submit">
                     </form>
                     <div class="py-3"></div>
                     <!--table of Icons-->
-                    <div class="row  align-items-center justify-content-md-center">
+                    <div class="row  align-items-center justify-content-md-center overflow-auto" style="max-height: 300px;">
                         <div class="col col-lg-7">
                             <table class="table">
-                                <tr *ngFor="let row of sliceFeaturesArray(profileRequest.user.features, 3)">
+                                <tr *ngFor="let row of sliceFeaturesArray(filteredFeatures)">
                                     <td *ngFor="let feature of row">
-                                        <span class="d-flex justify-content-center feature"> <i
+                                        <div (click)="addFeatureToUsersFeatures(feature)" class="cursor-hand">
+                                        <span class="d-flex justify-content-center feature-unselected"> <i
                                                 [class]="'fas fa-'+feature.uiStyle"></i>
                                         </span>
-                                        <div class="text-center"><small class="text-muted">photography</small></div>
+                                        <div class="text-center"><small class="text-muted">{{feature.name}}</small></div>
+                                    </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="py-3"></div>
+                    <!--table of Icons-->
+                    <div class="row  align-items-center justify-content-md-center overflow-auto" style="max-height: 300px;">
+                        <div class="col col-lg-7">
+                            <table class="table">
+                                <tr *ngFor="let row of sliceFeaturesArray(profileRequest.user.features)">
+                                    <td *ngFor="let feature of row">
+                                        <div (click)="removeFeatureFromUsersFeatures(feature)" class="cursor-hand">
+                                        <span class="ml-5 cursor-hand">×</span>
+                                        <span class="d-flex justify-content-center feature-selected"> <i
+                                                [class]="'fas fa-'+feature.uiStyle"></i>
+                                        </span>
+                                        <div class="text-center"><small class="text-muted">{{feature.name}}</small></div>
+                                     </div>
                                     </td>
                                 </tr>
                             </table>

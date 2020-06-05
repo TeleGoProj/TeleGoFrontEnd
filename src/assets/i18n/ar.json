@@ -64,6 +64,7 @@
     "LAST_NAME": "الإسم الاخير",
     "EMAIL_ADDRESS": "البريد الإليكتروني",
     "ADDRESS": "العنوان",
-    "LANDLINE_PHONE": "التليفون"
+    "LANDLINE_PHONE": "التليفون",
+    "FEATURES": "الصفات"
   }
 }

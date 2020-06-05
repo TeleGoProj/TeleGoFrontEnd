@@ -13,20 +13,37 @@ export class FeaturesComponent implements OnInit {
   @Input()
   profileRequest: ProfileRequest;
 
-  allFeatures = new Array<Array<Feature>>();
-  
+  allFeatures = new Array<Feature>();
+  filteredFeatures = new Array<Feature>();
+
+  // maxNumberOfDisplayedFeatures = 60;
+  maxNumberOfDisplayedFeaturesPerRow = 3;
+  searchFeatureName = '';
+
   constructor(private profileService: ProfileService) { }
 
   ngOnInit() {
     this.loadAllFeaturesLookups();
   }
 
+  filterFeatures(){
+    this.filteredFeatures = new Array<Feature>();
+    for(const feature of  this.allFeatures){
+      if(feature.name.indexOf(this.searchFeatureName) >= 0 && this.profileRequest.user.features.indexOf(feature) < 0){
+        this.filteredFeatures.push(feature);
+
+        // if(this.filteredFeatures.length == this.maxNumberOfDisplayedFeatures){
+        //   break;
+        // }
+      }
+    }
+  }
   
   loadAllFeaturesLookups(){
     let allFeatures = new Array<Feature>();
     this.profileService.getAllFeaturesLookups().subscribe(
       data => {
-        this.allFeatures = this.sliceFeaturesArray(data, 3);
+        this.allFeatures = data;
       },
       error =>{
 
@@ -34,13 +51,24 @@ export class FeaturesComponent implements OnInit {
     );
   }
 
-  sliceFeaturesArray(array: Array<Feature>, size: number): Array<Array<Feature>>{
+  sliceFeaturesArray(array: Array<Feature>): Array<Array<Feature>>{
     const arraySlices = Array<Array<Feature>>();
     if(array){
-      for (var i=0; i<array.length; i+=size) {
-        arraySlices.push(array.slice(i,i+size));
+      for (var i=0; i<array.length; i+=this.maxNumberOfDisplayedFeaturesPerRow) {
+        arraySlices.push(array.slice(i,i+this.maxNumberOfDisplayedFeaturesPerRow));
       }
     }
     return arraySlices;
+  }
+
+  addFeatureToUsersFeatures(feature: Feature){
+    this.profileRequest.user.features.push(feature);
+    this.filteredFeatures.splice(this.filteredFeatures.indexOf(feature), 1);
+    this.filterFeatures();
+  }
+
+  removeFeatureFromUsersFeatures(feature: Feature){
+    this.profileRequest.user.features.splice(this.profileRequest.user.features.indexOf(feature), 1);
+    this.filteredFeatures.push(feature);
   }
 }

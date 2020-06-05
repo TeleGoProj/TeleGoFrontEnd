@@ -64,6 +64,7 @@
     "LAST_NAME": "Last Name",
     "EMAIL_ADDRESS": "Email Address",
     "ADDRESS": "Address",
-    "LANDLINE_PHONE": "LandLine Phone"
+    "LANDLINE_PHONE": "LandLine Phone",
+    "FEATURES": "Features"
   }
 }

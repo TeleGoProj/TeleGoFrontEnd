@@ -104,9 +104,14 @@ color: #ffffff;
 }
 /* end feature search */
 
-.feature{
+.feature-selected{
 font-size: 48px;
  color: Dodgerblue;
+}
+
+.feature-unselected{
+font-size: 48px;
+ color: gray;
 }
 
 .search-result-card-brief {
