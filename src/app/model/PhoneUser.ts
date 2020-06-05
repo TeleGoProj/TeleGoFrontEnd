@@ -19,6 +19,7 @@ export class PhoneUser {
     userType: number;
     landLinePhone: LandlinePhone;
     features = new Array<Feature>();
+    aboutMe: string;
 
     static fromHttp(httpResponse: PhoneUser): PhoneUser {
         const user = new PhoneUser();
@@ -41,6 +42,7 @@ export class PhoneUser {
         user.userStatus = httpResponse.userStatus;
         user.userType = httpResponse.userType;
         user.landLinePhone = LandlinePhone.fromHttp(httpResponse.landLinePhone);
+        user.aboutMe = httpResponse.aboutMe;
 
         if(httpResponse.features){
             for (const feature of httpResponse.features) {

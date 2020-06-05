@@ -33,6 +33,7 @@ export class ProfileService implements Resolve<Observable<ProfileResponse>>{
   }
 
   submitProfile(profileRequest: ProfileRequest): Observable<ProfileResponse>{
+    console.log(profileRequest);
     return this.http.post<ProfileResponse>(environment.restUrl + '/api/profile/process-profile', profileRequest);
   }
 

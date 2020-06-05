@@ -36,7 +36,8 @@
               "src/assets/css/slick.css",
               "src/assets/css/bootstrap-select-country.min.css",
               "src/assets/css/style.css",
-              "src/assets/css/telego.css"
+              "src/assets/css/telego.css",
+              "src/assets/libraries/summernote-0.8.16/summernote.min.css"
             ],
             "scripts": [
               "src/assets/js/jquery-1.12.1.min.js",
@@ -54,7 +55,8 @@
               "src/assets/js/jquery.validate.min.js",
               "src/assets/js/mail-script.js",
               "src/assets/js/custom.js",
-              "src/assets/js/telego.js"
+              "src/assets/js/telego.js",
+              "src/assets/libraries/summernote-0.8.16/summernote.min.js"
             ]
           },
           "configurations": {

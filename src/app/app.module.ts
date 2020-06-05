@@ -1,6 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { NgxSummernoteModule } from 'ngx-summernote';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -24,8 +25,6 @@ import { BasicInfoComponent } from './components/user-profile/basic-info/basic-i
 import { FeaturesComponent } from './components/user-profile/features/features.component';
 import { AboutMeComponent } from './components/user-profile/about-me/about-me.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
-import { FeaturePipePipe } from './components/user-profile/features/feature-pipe.pipe';
-
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -49,8 +48,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     BasicInfoComponent,
     FeaturesComponent,
     AboutMeComponent,
-    UserProfileComponent,
-    FeaturePipePipe
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +63,8 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     }),
     BrowserAnimationsModule,
-    NgbModule
+    NgbModule,
+    NgxSummernoteModule
   ],
   providers: [],
   bootstrap: [AppComponent],

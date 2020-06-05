@@ -7,12 +7,7 @@
                     <h5 class="card-title">Description</h5>
                     <p class="card-text">Say descriptive words about yourself</p>
                     <div class="pt-3"></div>
-                    <button class="btn btn-secondary" onclick="saveAboutMe('summernote')"><i
-                            class="fa fa-save"></i></button>
-                    <button class="btn btn-secondary mx-5" onclick="insertMarkupsIntoEditor('summernote')"><i
-                            class="fas fa-microscope"></i></button>
-                    <div class="pt-3"></div>
-                    <div id="summernote" class="summernote-editor"></div>
+                    <div [ngxSummernote]="config" [(ngModel)]="profileRequest.user.aboutMe"></div>
                 </div>
             </div>
         </div>
