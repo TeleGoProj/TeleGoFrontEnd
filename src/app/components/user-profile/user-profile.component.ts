@@ -49,14 +49,19 @@ export class UserProfileComponent implements OnInit {
   submitProfile(){
     this.profileService.submitProfile(this.profileRequest).subscribe(
       next =>{
-        this.profileService.uploadImage(this.profileRequest).subscribe(
-          next2 =>{
-            this.showSuccessfulMessage();
-          },
-          error =>{
-            this.showErrorMessage();
-          }
-        );
+        if(this.profileRequest.imageUpdated){
+          this.profileService.uploadImage(this.profileRequest).subscribe(
+            next2 =>{
+              this.showSuccessfulMessage();
+            },
+            error =>{
+              this.showErrorMessage();
+            }
+          );
+        }
+        else{
+          this.showSuccessfulMessage();
+        }
       },
       error =>{
         this.showErrorMessage();

@@ -6,4 +6,5 @@ user: PhoneUser;
 phoneCountry: Country;
 cityPhoneCode: string;
 uploadedImage: FormData;
+imageUpdated: boolean;
 }

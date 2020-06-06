@@ -12,7 +12,7 @@ export class Box {
 
         if(httpResponse.cabin)
         box.cabin = Cabin.fromHttp(httpResponse.cabin);
-        
+
         return box;
       }
 }

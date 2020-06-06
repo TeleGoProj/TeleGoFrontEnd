@@ -35,6 +35,7 @@ export class ImgPassComponent implements OnInit {
     reader.readAsDataURL(this.selectedFile); 
     reader.onload = (_event) => { 
       this.profileImage = reader.result; 
+      this.profileRequest.imageUpdated = true;
     }
   }
 }
