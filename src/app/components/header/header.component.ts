@@ -21,4 +21,7 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['user/profile']);
   }
 
+  navigateToUserSearch(){
+    this.router.navigate(['user/search']);
+  }
 }

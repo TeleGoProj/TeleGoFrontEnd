@@ -3,7 +3,7 @@
     "LOGIN": "Login",
     "PACKAGES": "Packages",
     "PAGES": "Pages",
-    "ABOUT": "About",
+    "SEARCH": "Search",
     "CONTACT": "Contact",
     "ADMIN" : "Admin",
     "PROFILE": "Profile"
@@ -65,6 +65,14 @@
     "EMAIL_ADDRESS": "Email Address",
     "ADDRESS": "Address",
     "LANDLINE_PHONE": "LandLine Phone",
-    "FEATURES": "Features"
+    "FEATURES": "Features",
+    "ABOUT_ME": "About Me",
+    "DESCRIPTION": "Description",
+    "SAY_DESCRIPTIVE_WORDS_ABOUT_YOURSELF": "Say descriptive words about yourself"
+  },
+  "USER_SEARCH":{
+    "SEARCH": "Search",
+    "PHONE": "Phone",
+    "FEATURE": "Feature"
   }
 }

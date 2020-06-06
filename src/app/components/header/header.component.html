@@ -40,9 +40,6 @@
                 <a class="nav-link" href="#" data-toggle="modal" data-target="#login-modal">{{'HEADER.LOGIN' | translate}}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.html">{{'HEADER.ABOUT' | translate}}</a>
-              </li>
-              <li class="nav-item">
                 <a class="nav-link" href="packages.html">{{'HEADER.PACKAGES' | translate}}</a>
               </li>
               <li class="nav-item dropdown">
@@ -57,6 +54,11 @@
               <li class="nav-item">
                 <a class="nav-link" class="nav-link cursor-hand" (click)="navigateToProfile()">{{'HEADER.PROFILE' | translate}}</a>
               </li>
+              
+              <li class="nav-item">
+                <a class="nav-link" class="nav-link cursor-hand" (click)="navigateToUserSearch()">{{'HEADER.SEARCH' | translate}}</a>
+              </li>
+
             </ul>
           </div>
           <a class="btn_1 d-none d-lg-block" href="#"> <i class="fa fa-phone" style="font-size:24px"></i></a>

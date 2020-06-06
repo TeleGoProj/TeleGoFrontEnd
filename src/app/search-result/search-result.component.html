@@ -1,0 +1,78 @@
+<section class="search_your_country pb-1">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-lg-12">
+                <div class="search_form">
+                    <form action="#">
+                        <div class="form-row">
+                            <div class="col-lg-9">
+                                <div class="search_form_iner">
+                                    <input type="text" class="custom_select" [(ngModel)]="userSearchRequest.phoneNumber"
+                                    placeholder="{{'USER_SEARCH.PHONE' | translate}}" name="search-by-phoneNumber">
+                                    <input type="text" class="custom_select" [(ngModel)]="userSearchRequest.featureName" 
+                                    placeholder="{{'USER_SEARCH.FEATURE' | translate}}" style="border-left: 6px solid #ffcc00;"
+                                    name="search-by-feature">
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <a class="search_btn cursor-hand" (click)="searchForUsers()">{{"USER_SEARCH.SEARCH" | translate}}</a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</section>
+<!-- Team -->
+<section id="team" class="pb-5">
+<div class="container">
+    <div class="row justify-content-center">
+        <!-- Team member -->
+        <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let user of matchedUsers">
+            <div ontouchstart="this.classList.toggle('hover');">
+                <div class="mainflip">
+                    <div class="frontside">
+                        <div class="card mx-auto">
+                            <div class="card-body text-center">
+                                <p>
+                                    <img [src]="getProfileImage(user)" alt="User Image" class="img-thumbnail"
+                                    id="preview-user-image-thumbnail" *ngIf="user.image">
+                                <img src="assets/img/icon/person.png" alt="User Image" class="img-thumbnail"
+                                    id="preview-user-image-thumbnail" *ngIf="!user.image">
+                                </p>
+                                <h4 class="card-title">{{user.firstName}} {{user.lastName}}</h4>
+                                <p class="card-text search-result-card-brief">This is basic card with image on top, title, description and button.</p>
+                                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#exampleModal"
+                                (click)="showAboutMe(user)">
+                                    <i class="fa fa-plus"></i>
+                                  </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">{{'PROFILE.ABOUT_ME' | translate}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div [ngxSummernoteView]="selectedUser.aboutMe"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">X</button>
+        </div>
+      </div>
+    </div>
+  </div>

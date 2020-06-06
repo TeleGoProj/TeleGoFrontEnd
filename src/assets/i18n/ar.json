@@ -3,7 +3,7 @@
     "LOGIN": "دخول",
     "PACKAGES": "العروض",
     "PAGES": "صفحات",
-    "ABOUT": "عنا",
+    "SEARCH": "بحث",
     "CONTACT": "تواصل",
     "ADMIN" : "ادمن",
     "PROFILE": "صفحتي"
@@ -65,6 +65,14 @@
     "EMAIL_ADDRESS": "البريد الإليكتروني",
     "ADDRESS": "العنوان",
     "LANDLINE_PHONE": "التليفون",
-    "FEATURES": "الصفات"
+    "FEATURES": "الصفات",
+    "ABOUT_ME": "عني",
+    "DESCRIPTION": "الوصف",
+    "SAY_DESCRIPTIVE_WORDS_ABOUT_YOURSELF": "اكتب ما تصف به نفسك"
+  },
+  "USER_SEARCH":{
+    "SEARCH": "بحث",
+    "PHONE": "تليفون",
+    "FEATURE": "خاصية"
   }
 }
