@@ -23,8 +23,18 @@ export class UserProfileComponent implements OnInit {
   }
 
   ngOnInit() {
-    const user = this.route.snapshot.data.profileResponse.user;
-    this.profileRequest = this.createProfileRequestFromUser(user);
+    this.route.queryParams.subscribe(
+      (params) => {
+        const id = params['id'] ? params['id'] : 1;
+        this.profileService.getProfileData(id).subscribe(
+          (profileResponse)=>{
+            if(profileResponse && profileResponse.user){
+              this.profileRequest = this.createProfileRequestFromUser(profileResponse.user)
+            }
+          }
+        );
+      }
+    );
   }
 
   createEmptyProfileRequest(): ProfileRequest {

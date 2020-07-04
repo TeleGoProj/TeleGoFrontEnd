@@ -4,7 +4,7 @@ import { ProfileResponse } from '../model/response/ProfileResponse';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
-import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
+import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { PhoneUser } from '../model/PhoneUser';
 import { ProfileRequest } from '../model/request/ProfileRequest';
 import { Country } from '../model/Country';
@@ -13,11 +13,11 @@ import { Feature } from '../model/Feature';
 @Injectable({
   providedIn: 'root'
 })
-export class ProfileService implements Resolve<Observable<ProfileResponse>>{
+export class ProfileService{
 
   uploadedImage: FormData;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private router: Router) { }
 
   getProfileData(id: number): Observable<ProfileResponse>{
     return this.http.get<ProfileResponse>(environment.restUrl + '/api/profile/get-profile/' + id).
@@ -26,10 +26,6 @@ export class ProfileService implements Resolve<Observable<ProfileResponse>>{
         return ProfileResponse.fromHttp(data);
       })
     );
-  }
-
-  resolve() {
-    return this.getProfileData(1);
   }
 
   submitProfile(profileRequest: ProfileRequest): Observable<ProfileResponse>{

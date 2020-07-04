@@ -96,7 +96,7 @@
 
               <div class="form-group">
                   <label for="FirstName">FirstName</label>
-                  <input type="text" class="form-control" id="FirstName" placeholder="FirstName">
+                  <input type="text" class="form-control" id="FirstName" placeholder="FirstName" [(ngModel)]="username" name="username">
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">LastName</label>
@@ -115,8 +115,8 @@
             </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="col btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="col btn btn-primary">Login</button>
+        <button type="button" class="col btn btn-secondary" data-dismiss="modal" id="close-login-button">Close</button>
+        <button type="button" class="col btn btn-primary" (click)="login()">Login</button>
         <button type="button" class="col btn btn-success">Sign Up</button>
       </div>
     </div>
