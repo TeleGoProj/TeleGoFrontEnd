@@ -11,7 +11,7 @@ import { SearchResultComponent } from './search-result/search-result.component';
 const routes: Routes = [
   {path : ':lang', component : AppComponent},
   {path : 'admin/lookups', component : AdminLookupComponent, resolve : {adminLookupsResponse : AdminService}},
-  {path : 'user/profile', component : UserProfileComponent, resolve : {profileResponse : ProfileService}},
+  {path : 'user/profile/:id', component : UserProfileComponent, resolve : {profileResponse : ProfileService}},
   {path : 'user/search', component : SearchResultComponent},
   {path: '', component : HomePageComponent}
 ];

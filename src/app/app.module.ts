@@ -26,6 +26,7 @@ import { FeaturesComponent } from './components/user-profile/features/features.c
 import { AboutMeComponent } from './components/user-profile/about-me/about-me.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { SearchResultComponent } from './search-result/search-result.component';
+import { RouterModule } from '@angular/router';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -56,6 +57,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    RouterModule.forRoot([
+      {path:'', component:HomePageComponent },
+      {path:'profile/:id', component: UserProfileComponent }
+    ]),
     FormsModule,
     TranslateModule.forRoot({
       loader: {

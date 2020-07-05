@@ -20,6 +20,8 @@ export class UserProfileComponent implements OnInit {
   alert = new Subject<string>();
 
   constructor(private route: ActivatedRoute, private profileService: ProfileService, private translate: TranslateService) { 
+    this.route.paramMap.subscribe(params => console.log(params.get('id')));
+
   }
 
   ngOnInit() {

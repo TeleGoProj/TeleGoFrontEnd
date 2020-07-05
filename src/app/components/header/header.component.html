@@ -92,32 +92,48 @@
         </button>
       </div>
       <div class="modal-body">
-          <form>
+
+
+          <form #f="ngForm">
 
               <div class="form-group">
                   <label for="FirstName">FirstName</label>
-                  <input type="text" class="form-control" id="FirstName" placeholder="FirstName">
+                  <input  ngModel name="name" #name="ngModel" type="text" class="form-control" id="FirstName" placeholder="FirstName" required>
                 </div>
+                <div class="alert alert-danger" *ngIf="name.invalid && name.touched">Firstname is required </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">LastName</label>
-                  <input type="text" class="form-control" id="LastName" placeholder="LastName">
+                  <input ngModel name="Lname" #lname="ngModel" type="text" class="form-control" id="LastName" placeholder="LastName" required>
                 </div>
+                <div class="alert alert-danger" *ngIf="name.invalid && name.touched">Lastname is required </div>
+
               <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <input ngModel name="email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required email>
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
               </div>
+              <!--div class="alert alert-danger" *ngIf="email.touched && email.errors?.required">Email is required</div-->
+
               <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <input ngModel name="password" #password="ngModel" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" required minlength="6">
               </div>
+               
+              <div class="form-group">
+                <label for="exampleInputPassword1"> Confirm Password</label>
+                <input ngModel name="passwordconfirm" #passwordconfirm="ngModel" type="password" class="form-control" id="exampleInputPassword1" placeholder="passwordconfirm" required >
+              </div>
+              <div class="alert alert-danger" *ngIf="passwordconfirm.invalid && passwordconfirm.touched">Password Confirm is required </div>
+              <div class="alert alert-danger" *ngIf="passwordconfirm.value !== password.value"> Passwords are not equals</div>
+
+
 
             </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="col btn btn-secondary" data-dismiss="modal">Close</button>
         <button type="button" class="col btn btn-primary">Login</button>
-        <button type="button" class="col btn btn-success">Sign Up</button>
+        <button type="button" class="col btn btn-success" [disabled]="f.invalid">Sign Up</button>
       </div>
     </div>
   </div>
