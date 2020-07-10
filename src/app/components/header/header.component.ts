@@ -10,7 +10,8 @@ import { AuthenticationService } from 'src/app/authentication.service';
 })
 export class HeaderComponent implements OnInit {
 
-  username: number ;
+  username: string;
+  password : string;
 
   constructor(private router: Router, private authService: AuthenticationService) { }
 
@@ -30,7 +31,7 @@ export class HeaderComponent implements OnInit {
   }
 
   login(){
-   this.authService.login(this.username, '').subscribe(
+   this.authService.login(this.username , this.password).subscribe(
      (data)=>{
       this.router.navigate(['user','profile'], {queryParams : { id : data}})
       document.getElementById("close-login-button").click();
