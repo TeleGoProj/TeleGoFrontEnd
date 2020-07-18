@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProfileService } from 'src/app/services/profile.service';
 import { AuthenticationService } from 'src/app/authentication.service';
-import { RegisterServicesService } from 'src/app/services/register-services.service';
 import { ProfileRequest } from 'src/app/model/request/ProfileRequest';
+import { PhoneUser } from 'src/app/model/PhoneUser';
 
 @Component({
   selector: 'app-header',
@@ -15,9 +15,11 @@ export class HeaderComponent implements OnInit {
   loginRequest: ProfileRequest;
   
 
-  constructor(private router: Router, private authService: AuthenticationService , loginRequest: ProfileRequest ) { }
+  constructor(private router: Router, private authService: AuthenticationService) { }
 
   ngOnInit() {
+    this.loginRequest = new ProfileRequest();
+    this.loginRequest.user = new PhoneUser();
   }
 
   navigateToAdminLookups(){

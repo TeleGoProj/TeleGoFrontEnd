@@ -13,7 +13,7 @@ import { ProfileRequest } from './model/request/ProfileRequest';
 export class AuthenticationService {
 
   
-  constructor(private http: HttpClient,private router: Router ,  loginRequest: ProfileRequest ) { }
+  constructor(private http: HttpClient,private router: Router ) { }
 
   login(loginRequest : ProfileRequest): Observable<ProfileResponse> {
     return this.http.post<ProfileResponse>(environment.restUrl + '/api/authentication/login/' , loginRequest).
