@@ -27,13 +27,16 @@ import { AboutMeComponent } from './components/user-profile/about-me/about-me.co
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { SearchResultComponent } from './search-result/search-result.component';
 
+
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
 
 @NgModule({
+  
   declarations: [
+    
     AppComponent,
     HeaderComponent,
     FooterComponent,
@@ -51,6 +54,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AboutMeComponent,
     UserProfileComponent,
     SearchResultComponent
+    
   ],
   imports: [
     BrowserModule,

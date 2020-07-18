@@ -3,6 +3,8 @@ import { Country } from 'src/app/model/Country';
 import { ProfileService } from 'src/app/services/profile.service';
 import { ProfileRequest } from 'src/app/model/request/ProfileRequest';
 
+
+
 @Component({
   selector: 'app-basic-info',
   templateUrl: './basic-info.component.html',
@@ -10,11 +12,13 @@ import { ProfileRequest } from 'src/app/model/request/ProfileRequest';
 })
 export class BasicInfoComponent implements OnInit {
 
+ 
+
   @Input()
   profileRequest: ProfileRequest;
   countries = new Array<Country>();
   
-  constructor(private profileService: ProfileService) { }
+  constructor(private profileService: ProfileService ) { }
 
   ngOnInit() {
     this.loadAllCountriesLookups();
@@ -35,4 +39,9 @@ export class BasicInfoComponent implements OnInit {
   updateSelectedCountry(country: Country){
     this.profileRequest.phoneCountry = country;
   }
+
+
+  
+
+
 }

@@ -5,16 +5,18 @@ import { environment } from 'src/environments/environment';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { ProfileResponse } from './model/response/ProfileResponse';
+import { ProfileRequest } from './model/request/ProfileRequest';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
 
-  constructor(private http: HttpClient,private router: Router) { }
+  
+  constructor(private http: HttpClient,private router: Router ,  loginRequest: ProfileRequest ) { }
 
-  login(username: string , password : string): Observable<number> {
-    return this.http.get<number>(environment.restUrl + '/api/authentication/login/' + username + '/' + password).
+  login(loginRequest : ProfileRequest): Observable<ProfileResponse> {
+    return this.http.post<ProfileResponse>(environment.restUrl + '/api/authentication/login/' , loginRequest).
     pipe(
       map(data => {
         if(data )
