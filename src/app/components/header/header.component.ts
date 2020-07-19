@@ -18,8 +18,8 @@ export class HeaderComponent implements OnInit {
   constructor(private router: Router, private authService: AuthenticationService) { }
 
   ngOnInit() {
-    this.loginRequest = new ProfileRequest() ;
-     this.loginRequest.user = new PhoneUser();
+    this.loginRequest = new ProfileRequest();
+    this.loginRequest.user = new PhoneUser();
   }
 
   navigateToAdminLookups(){
