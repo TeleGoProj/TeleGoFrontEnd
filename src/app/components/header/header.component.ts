@@ -1,18 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProfileService } from 'src/app/services/profile.service';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { ProfileRequest } from 'src/app/model/request/ProfileRequest';
 import { PhoneUser } from 'src/app/model/PhoneUser';
 
 @Component({
-  
+
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
 
 export class HeaderComponent implements OnInit {
+
+  @Input()
   loginRequest: ProfileRequest;
   
 
