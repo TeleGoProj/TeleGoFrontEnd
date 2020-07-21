@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { ProfileRequest } from 'src/app/model/request/ProfileRequest';
 import { PhoneUser } from 'src/app/model/PhoneUser';
+import { RegisterationService } from 'src/app/services/registeration.service';
+  import { from } from 'rxjs';
+import { data } from 'jquery';
 
 @Component({
 
@@ -14,14 +17,15 @@ import { PhoneUser } from 'src/app/model/PhoneUser';
 export class HeaderComponent implements OnInit {
 
   @Input()
-  loginRequest: ProfileRequest;
+  profileRequest: ProfileRequest;
   
 
-  constructor(private router: Router, private authService: AuthenticationService) { }
+  constructor(private router: Router, private authService: AuthenticationService , private registService : RegisterationService) { }
 
   ngOnInit() {
-    this.loginRequest = new ProfileRequest();
-    this.loginRequest.user = new PhoneUser();
+    this.profileRequest = new ProfileRequest();
+    this.profileRequest.user = new PhoneUser();
+
   }
 
   navigateToAdminLookups(){
@@ -37,13 +41,24 @@ export class HeaderComponent implements OnInit {
   }
 
   login(){
-   this.authService.login(this.loginRequest).subscribe(
+   this.authService.login(this.profileRequest).subscribe(
      (data) =>{
       this.router.navigate(['user','profile'], {queryParams : { id : data.user.userId}})
       document.getElementById("close-login-button").click();
      }
    );
   }
+
+
+register(){
+this.registService.register(this.profileRequest).subscribe(
+  (data)=>{
+    this.router.navigate(['user' ,'profile'],{queryParams: {id : data.user.userId}})
+    document.getElementById("close-;ogin-button").click();
+  }
+)
+
+}
 
   
 }

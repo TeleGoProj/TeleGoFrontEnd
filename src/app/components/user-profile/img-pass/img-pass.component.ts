@@ -17,12 +17,13 @@ export class ImgPassComponent implements OnInit {
 
   @Input()
   profileRequest: ProfileRequest;
+ 
 
   constructor(private http: HttpClient, private profileService: ProfileService) { }
 
   ngOnInit() {
     if(this.profileRequest.user.image)
-    this.profileImage = 'data:image/jpeg;base64,' + this.profileRequest.user.image;
+    this.profileImage = 'data:image/jpeg;base64,' + this.profileRequest.user.image ;
   }
 
   onFileSelected(event) {

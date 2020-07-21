@@ -100,12 +100,12 @@
 
               <div class="form-group">
                   <label for="Login-Name">Login-Name</label>
-                  <input type="text" class="form-control" id="Login-Name" placeholder="LoginName" [(ngModel)]="loginRequest.user.loginName" name="Login-Name" required>
+                  <input type="text" class="form-control" id="Login-Name" placeholder="LoginName" [(ngModel)]="profileRequest.user.loginName" name="loginName" required>
                 </div>
     
               <div class="form-group">
                 <label for="exampleInputPassword1">Login-Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="LoginPassword" [(ngModel)]="loginRequest.user.loginPassword" name="Login-Password" required>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="LoginPassword" [(ngModel)]="profileRequest.user.loginPassword" name="loginPassword" required>
               </div>
 
             </form>
@@ -135,25 +135,40 @@
 
               <div class="form-group">
                   <label for="FirstName">FirstName</label>
-                  <input type="text" class="form-control" id="FirstName" placeholder="FirstName" name="FirstName" required
-                  placeholder="FirstName" 
+                  <input type="text" class="form-control" id="FirstName" placeholder="FirstName" name="firstName" required
+                  placeholder="FirstName" [(ngModel)]="profileRequest.user.firstName" 
                   >
                 </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">LastName</label>
-                  <input type="text" class="form-control" id="lastName"  name="lastName" placeholder="LastName" required 
+                  <input type="text" class="form-control" id="lastName"  name="lastName" placeholder="LastName" required [(ngModel)]="profileRequest.user.lastName"
                   >
                 </div>
               <div class="form-group">
                 <label for="exampleInputEmail1">Email address</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" placeholder="Enter email" required
-                placeholder="Email"
+                placeholder="Email" [(ngModel)]="profileRequest.user.email"
                          >
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
               </div>
+
               <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"  name="password" required
+                <input type="text" class="form-control" id="exampleInputloginName1" placeholder="loginName"  name="loginName" required [(ngModel)]="profileRequest.user.loginName"
+               
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"  name="loginPassword" required [(ngModel)]="profileRequest.user.loginPassword"
+               
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="exampleInputPassword1">LandLinePhone</label>
+                <input type="number" class="form-control" id="exampleInputPhone1" placeholder="landLinePhone"  name="landLinePhone" required [(ngModel)]="profileRequest.user.landLinePhone"
                
                 >
               </div>
@@ -162,7 +177,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="col btn btn-secondary" data-dismiss="modal" id="close-login-button">Close</button>
-        <button type="button" class="col btn btn-success" >Sign Up</button>
+        <button type="button" class="col btn btn-success" (click)="register()" >Sign Up</button>
       </div>
     </div>
   </div>

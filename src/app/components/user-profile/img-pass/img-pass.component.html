@@ -34,24 +34,26 @@
 
                         <div class="col col-lg-5">
                             <div class="form-group required">
-                                <label for="username" class="control-label">{{'PROFILE.USERNAME' | translate}} </label>
-                                <input type="text" class="form-control" name="username" required
-                                    placeholder="{{'PROFILE.USERNAME' | translate}}" [disabled]="profileRequest.user.userId"
-                                    [value]="profileRequest.user.loginName">
+                                <label for="username" class="control-label" >{{'PROFILE.USERNAME' | translate}}</label>
+                                <input type="text" class="form-control" name="loginName" required
+                                placeholder="{{'PROFILE.USERNAME' | translate}}" 
+                                    [disabled]="profileRequest.user.userId"
+                                    [value]="profileRequest.user.loginName"
+                                    >
                             </div>
 
                             <div class="form-group required">
                                 <label for="password" class="control-label"> {{'PROFILE.PASSWORD' | translate}} </label>
-                                <input type="password" class="form-control" name="password" required
+                                <input type="text" class="form-control" name="password" required
                                     placeholder="{{'PROFILE.PASSWORD' | translate}}"
-                                    [(ngModel)]="profileRequest.user.loginPassword">
+                                    [value]="profileRequest.user.loginPassword">
                             </div>
 
                             <div class="form-group required">
                                 <label for="confirm-password" class="control-label"> {{'PROFILE.CONFIRM_PASSWORD' | translate}} </label>
-                                <input type="password" class="form-control" name="confirm-password" required
+                                <input type="password" class="form-control" name="confirmpassword" required
                                     placeholder="{{'PROFILE.CONFIRM_PASSWORD' | translate}}"
-                                    [(ngModel)]="confirmPassword">
+                                    [value]="confirmPassword">
                             </div>
 
 
