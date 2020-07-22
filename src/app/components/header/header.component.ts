@@ -6,6 +6,7 @@ import { PhoneUser } from 'src/app/model/PhoneUser';
 import { RegisterationService } from 'src/app/services/registeration.service';
   import { from } from 'rxjs';
 import { data } from 'jquery';
+import { LandlinePhone } from 'src/app/model/LandlinePhone';
 
 @Component({
 
@@ -25,6 +26,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.profileRequest = new ProfileRequest();
     this.profileRequest.user = new PhoneUser();
+    this.profileRequest.user.landLinePhone = new LandlinePhone();
 
   }
 
