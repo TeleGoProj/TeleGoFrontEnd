@@ -4,8 +4,8 @@ import { Feature } from './Feature';
 export class PhoneUser {
     
     userId: number;
-    loginName: string;
-    loginPassword: string;
+    loginName: string = '';
+    loginPassword = '';
     firstName: string;
     middleName: string;
     lastName: string;
@@ -20,6 +20,10 @@ export class PhoneUser {
     landLinePhone: LandlinePhone;
     features = new Array<Feature>();
     aboutMe: string;
+
+    constructor(){
+        this.landLinePhone = new LandlinePhone();
+    }
 
     static fromHttp(httpResponse: PhoneUser): PhoneUser {
         const user = new PhoneUser();

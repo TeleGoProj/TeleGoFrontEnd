@@ -17,11 +17,15 @@ export class City {
 
   country: Country;
 
+  constructor(){
+    this.country = new Country();
+  }
+
   static fromHttp(httpResponse: City) {
     const city = new City();
 
     if(!httpResponse)
-    return httpResponse;
+    return city;
 
     city.cityId = httpResponse.cityId;
     city.nameEn = httpResponse.nameEn;
@@ -41,16 +45,6 @@ export class City {
     this.code = source.code;
     this.phoneCode = source.phoneCode;
   }
-
-
-
-  /*constructor();
-  constructor(cityId?: number, nameEn?: string, nameAr?: string, code?: string) {
-    this.cityId = cityId;
-    this.nameAr = nameEn;
-    this.nameEn = nameAr;
-    this.code = code;
-  }*/
 }
 
 

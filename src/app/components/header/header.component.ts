@@ -31,7 +31,6 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.profileRequest = new ProfileRequest();
     this.profileRequest.user = new PhoneUser();
-    this.profileRequest.user.landLinePhone = new LandlinePhone();
    }
 
   navigateToAdminLookups(){

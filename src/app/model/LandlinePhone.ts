@@ -5,6 +5,10 @@ export class LandlinePhone {
     phoneNumber: number;
     box: Box;
     
+    constructor(){
+        this.box = new Box();
+    }
+
     static fromHttp(httpResponse: LandlinePhone): LandlinePhone{
         const landlinePhone = new LandlinePhone();
 

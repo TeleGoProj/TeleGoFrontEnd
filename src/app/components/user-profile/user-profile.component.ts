@@ -7,6 +7,10 @@ import { Subject } from 'rxjs';
 import { ProfileRequest } from 'src/app/model/request/ProfileRequest';
 import { LandlinePhone } from 'src/app/model/LandlinePhone';
 import { Box } from 'src/app/model/Box';
+import { Cabin } from 'src/app/model/Cabin';
+import { Area } from 'src/app/model/Area';
+import { City } from 'src/app/model/City';
+import { Country } from 'src/app/model/Country';
 
 @Component({
   selector: 'app-user-profile',
@@ -45,31 +49,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   createProfileRequestFromUser(user: PhoneUser): ProfileRequest {
-    const profileRequest = new ProfileRequest();
-      
-    if (user.landLinePhone != null)
-    {
-      const landLinePhone = user.landLinePhone;
-      const box = user.landLinePhone.box ;
-      profileRequest.landLinePhone = landLinePhone ;
-      profileRequest.landLinePhone.box = box ;
-      profileRequest.landLinePhone.phoneNumber = landLinePhone.phoneNumber;
-    } 
-   else 
-     {
-       const landLinePhone = new LandlinePhone();
-      const box = new Box();
-      profileRequest.landLinePhone.phoneNumber = 0 ;
-    }
-
-    const city = user.landLinePhone.box.cabin.area.city;
-    const cityPhoneCode = city.phoneCode;
-    const phoneCountry = city.country;
-   
-    profileRequest.cityPhoneCode = cityPhoneCode;
-    profileRequest.phoneCountry = phoneCountry;
-    profileRequest.user = user;
-
+    const profileRequest = ProfileRequest.fromHttpPhoneUserResponse(user);
     return profileRequest;
   }
   
