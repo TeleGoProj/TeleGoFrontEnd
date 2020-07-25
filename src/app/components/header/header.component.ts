@@ -7,6 +7,11 @@ import { RegisterationService } from 'src/app/services/registeration.service';
   import { from } from 'rxjs';
 import { data } from 'jquery';
 import { LandlinePhone } from 'src/app/model/LandlinePhone';
+import { Box } from 'src/app/model/Box';
+import { Cabin } from 'src/app/model/Cabin';
+import { Area } from 'src/app/model/Area';
+import { City } from 'src/app/model/City';
+import { Country } from 'src/app/model/Country';
 
 @Component({
 
@@ -27,8 +32,7 @@ export class HeaderComponent implements OnInit {
     this.profileRequest = new ProfileRequest();
     this.profileRequest.user = new PhoneUser();
     this.profileRequest.user.landLinePhone = new LandlinePhone();
-
-  }
+   }
 
   navigateToAdminLookups(){
     this.router.navigate(['admin/lookups']);

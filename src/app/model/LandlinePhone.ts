@@ -9,7 +9,7 @@ export class LandlinePhone {
         const landlinePhone = new LandlinePhone();
 
         if(!httpResponse)
-        return httpResponse;
+        return landlinePhone;
 
         landlinePhone.landlinePhoneId = httpResponse.landlinePhoneId;
         landlinePhone.phoneNumber = httpResponse.phoneNumber;
