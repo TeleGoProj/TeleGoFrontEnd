@@ -100,13 +100,18 @@
 
               <div class="form-group">
                   <label for="Login-Name">Login-Name</label>
-                  <input type="text" class="form-control" id="Login-Name" placeholder="LoginName" [(ngModel)]="profileRequest.user.loginName" name="loginName" required>
+                  <input type="text" class="form-control" id="Login-Name" placeholder="LoginName" #loginName="ngModel" [(ngModel)]="profileRequest.user.loginName" name="loginName" required>
                 </div>
+                <small></small>
+                <div class="alert alert-danger" *ngIf="loginName.invalid && loginName.touched">User Name is Required</div>
     
               <div class="form-group">
                 <label for="exampleInputPassword1">Login-Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="LoginPassword" [(ngModel)]="profileRequest.user.loginPassword" name="loginPassword" required>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="LoginPassword" #loginPassword="ngModel" [(ngModel)]="profileRequest.user.loginPassword" name="loginPassword" required>
               </div>
+              <small></small>
+              <div class="alert alert-danger" *ngIf="loginPassword.errors?.required && loginPassword.touched">PassWord is Required</div>
+
 
             </form>
       </div>
@@ -131,45 +136,60 @@
 
          
       <div class="modal-body">
-          <form>
+          <form #f="ngForm">
 
               <div class="form-group">
                   <label for="FirstName">FirstName</label>
-                  <input type="text" class="form-control" id="FirstName" placeholder="FirstName" name="firstName" required
-                  placeholder="FirstName" [(ngModel)]="profileRequest.user.firstName" 
-                  >
+                  <input type="text" class="form-control" id="FirstName" placeholder="FirstName" #firstname="ngModel" name="firstName" required
+                   [(ngModel)]="profileRequest.user.firstName">
                 </div>
+                <small></small>
+                <div class="alert alert-danger" *ngIf="firstname.invalid && firstname.touched">First Name is Required</div>
+
                 <div class="form-group">
                   <label for="exampleInputPassword1">LastName</label>
-                  <input type="text" class="form-control" id="lastName"  name="lastName" placeholder="LastName" required [(ngModel)]="profileRequest.user.lastName"
-                  >
+                  <input type="text" class="form-control" id="lastName" #lastname="ngModel" name="lastName" placeholder="LastName" required [(ngModel)]="profileRequest.user.lastName">
                 </div>
-              <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" placeholder="Enter email" required
-                placeholder="Email" [(ngModel)]="profileRequest.user.email"
-                         >
-                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-              </div>
+                <small></small>
+                <div class="alert alert-danger" *ngIf="lastname.invalid && lastname.touched">Last Name is Required</div>
 
               <div class="form-group">
-                <label for="exampleInputPassword1">Username</label>
-                <input type="text" class="form-control" id="exampleInputloginName1" placeholder="Username"  name="username" required [(ngModel)]="profileRequest.user.loginName"
-               
-                >
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" #email="ngModel" name="email" placeholder="Enter email" required email
+                placeholder="Email" [(ngModel)]="profileRequest.user.email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
               </div>
+              <small></small>
+              <div class="alert alert-danger" *ngIf="email.errors?.email && email.touched">Your input does not match email format</div>
+              <div class="alert alert-danger" *ngIf="email.errors?.required && email.touched">Email is Required</div>
+
+              <div class="form-group" >
+                <label for="exampleInputPassword1">Username</label>
+                <input type="text" class="form-control" id="exampleInputloginName1" placeholder="Username" #name="ngModel" name="username" required [(ngModel)]="profileRequest.user.loginName">
+              </div>
+              <small></small>
+              <div class="alert alert-danger" *ngIf="name.invalid && name.touched">User Name is Required</div>
 
               <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"  name="loginPassword" required [(ngModel)]="profileRequest.user.loginPassword"
-               
-                >
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" #password="ngModel" minlength="8" name="loginPassword" required [(ngModel)]="profileRequest.user.loginPassword">
               </div>
+              <small></small>
+              <div class="alert alert-danger" *ngIf="password.errors?.required && password.touched">PassWord is Required</div>
+              <div class="alert alert-danger" *ngIf="password.errors?.minlength && password.touched">PassWord should be 8 characters</div>
+
+              <div class="form-group">
+                <label for="exampleInputPassword1">ConfirmPassword</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="ConfirmPassword" #confirmpassword="ngModel"  name="confirmpassword" required [(ngModel)]="confirmPassword">
+              </div>
+              <small></small>
+              <div class="alert alert-danger" *ngIf="confirmpassword.invalid && confirmpassword.touched">ConfirmPassWord is Required</div>
+              <div class="alert alert-danger" *ngIf="confirmpassword.value !== password.value && confirmpassword.touched" >PassWords are not equal</div>
             </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="col btn btn-secondary" data-dismiss="modal" id="close-login-button">Close</button>
-        <button type="button" class="col btn btn-success" (click)="register()" >Sign Up</button>
+        <button type="button" class="col btn btn-success" [disabled]="f.invalid" (click)="register()" >Sign Up</button>
       </div>
     </div>
   </div>

@@ -22,6 +22,8 @@ import { Country } from 'src/app/model/Country';
 
 export class HeaderComponent implements OnInit {
 
+  confirmPassword = '';
+
   @Input()
   profileRequest: ProfileRequest;
   
