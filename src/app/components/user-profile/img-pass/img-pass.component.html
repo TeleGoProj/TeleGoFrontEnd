@@ -39,14 +39,14 @@
                                 placeholder="{{'PROFILE.USERNAME' | translate}}" 
                                     [disabled]="profileRequest.user.userId"
                                     [value]="profileRequest.user.loginName"
-                                    >
+                                    [(ngModel)]="profileRequest.user.loginName">
                             </div>
 
                             <div class="form-group required">
                                 <label for="password" class="control-label">{{'PROFILE.PASSWORD' | translate}}</label>
                                 <input type="text" class="form-control" name="password" required
                                     placeholder="{{'PROFILE.PASSWORD' | translate}}"
-                                    [value]="profileRequest.user.loginPassword">
+                                    [value]="profileRequest.user.loginPassword" [(ngModel)]="profileRequest.user.loginPassword">
                             </div>
 
                             <div class="form-group required">

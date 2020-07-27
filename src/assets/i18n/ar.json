@@ -1,6 +1,7 @@
 {
   "HEADER": {
     "LOGIN": "دخول",
+    "LOGOUT":"خروج",
     "PACKAGES": "العروض",
     "PAGES": "صفحات",
     "SEARCH": "بحث",

@@ -4,7 +4,7 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 import { ProfileRequest } from 'src/app/model/request/ProfileRequest';
 import { PhoneUser } from 'src/app/model/PhoneUser';
 import { RegisterationService } from 'src/app/services/registeration.service';
-  import { from } from 'rxjs';
+import { from } from 'rxjs';
 import { data } from 'jquery';
 import { LandlinePhone } from 'src/app/model/LandlinePhone';
 import { Box } from 'src/app/model/Box';
@@ -23,16 +23,20 @@ import { Country } from 'src/app/model/Country';
 export class HeaderComponent implements OnInit {
 
   confirmPassword = '';
+  isLoggedIn : boolean ;
+  isRegister : boolean
 
   @Input()
   profileRequest: ProfileRequest;
   
 
-  constructor(private router: Router, private authService: AuthenticationService , private registService : RegisterationService) { }
+  constructor(private router: Router, private authService: AuthenticationService , private registService : RegisterationService ) { }
 
   ngOnInit() {
     this.profileRequest = new ProfileRequest();
     this.profileRequest.user = new PhoneUser();
+
+    
    }
 
   navigateToAdminLookups(){
@@ -50,9 +54,10 @@ export class HeaderComponent implements OnInit {
   login(){
    this.authService.login(this.profileRequest).subscribe(
      (data) =>{
+       this.isLoggedIn=true;
       this.router.navigate(['user','profile'], {queryParams : { id : data.user.userId}})
       document.getElementById("close-login-button").click();
-     }
+       }
    );
   }
 
@@ -60,12 +65,17 @@ export class HeaderComponent implements OnInit {
 register(){
 this.registService.register(this.profileRequest).subscribe(
   (data)=>{
+    this.isRegister=true;
     this.router.navigate(['user' ,'profile'],{queryParams: {id : data.user.userId}})
-    document.getElementById("close-;ogin-button").click();
-  }
-)
-
+    document.getElementById("close-login-button").click();
+}
+);
 }
 
-  
+logout(){
+  this.navigateToUserSearch();
+  this.isLoggedIn = false;
+  this.isRegister=false;
+}
+
 }

@@ -1,6 +1,7 @@
 {
   "HEADER": {
     "LOGIN": "Login",
+    "LOGOUT":"logout",
     "PACKAGES": "Packages",
     "PAGES": "Pages",
     "SEARCH": "Search",

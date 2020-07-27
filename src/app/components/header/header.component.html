@@ -36,10 +36,15 @@
                   </div>
                 </div>
               </li>
-              <li class="nav-item">
+              <li class="nav-item"  *ngIf="!isLoggedIn && !isRegister">
                 <a class="nav-link" href="#" data-toggle="modal" data-target="#login-modal">{{'HEADER.LOGIN' | translate}}</a>
               </li>
-              <li class="nav-item">
+
+              <li class="nav-item" *ngIf="isLoggedIn || isRegister">
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#logout-modal" (click)="logout()">{{'HEADER.LOGOUT' | translate}}</a>
+              </li>
+
+              <li class="nav-item" *ngIf="!isLoggedIn && !isRegister">
                 <a class="nav-link" href="#" data-toggle="modal" data-target="#register-modal">{{'HEADER.REGISTERATION' | translate}}</a>
               </li>
               <li class="nav-item">
@@ -107,11 +112,11 @@
     
               <div class="form-group">
                 <label for="exampleInputPassword1">Login-Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="LoginPassword" #loginPassword="ngModel" [(ngModel)]="profileRequest.user.loginPassword" name="loginPassword" required>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="LoginPassword" #loginPassword="ngModel" [(ngModel)]="profileRequest.user.loginPassword" name="loginPassword" required minlength="8">
               </div>
               <small></small>
               <div class="alert alert-danger" *ngIf="loginPassword.errors?.required && loginPassword.touched">PassWord is Required</div>
-
+              
 
             </form>
       </div>
