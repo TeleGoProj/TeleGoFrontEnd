@@ -101,18 +101,18 @@
         </button>
       </div>
       <div class="modal-body">
-          <form>
+          <form #fo="ngForm">
 
               <div class="form-group">
-                  <label for="Login-Name">Login-Name</label>
-                  <input type="text" class="form-control" id="Login-Name" placeholder="LoginName" #loginName="ngModel" [(ngModel)]="profileRequest.user.loginName" name="loginName" required>
+                  <label for="Login-Name">User Name <span class="required">*</span></label>
+                  <input type="text" class="form-control" id="Login-Name" placeholder="User Name" #loginName="ngModel" [(ngModel)]="profileRequest.user.loginName" name="loginName" required>
                 </div>
                 <small></small>
                 <div class="alert alert-danger" *ngIf="loginName.invalid && loginName.touched">User Name is Required</div>
     
               <div class="form-group">
-                <label for="exampleInputPassword1">Login-Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="LoginPassword" #loginPassword="ngModel" [(ngModel)]="profileRequest.user.loginPassword" name="loginPassword" required minlength="8">
+                <label for="exampleInputPassword1">Password <span class="required">*</span></label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" #loginPassword="ngModel" [(ngModel)]="profileRequest.user.loginPassword" name="loginPassword" required minlength="8">
               </div>
               <small></small>
               <div class="alert alert-danger" *ngIf="loginPassword.errors?.required && loginPassword.touched">PassWord is Required</div>
@@ -122,7 +122,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="col btn btn-secondary" data-dismiss="modal" id="close-login-button">Close</button>
-        <button type="button" class="col btn btn-primary" (click)="login()">Login</button>
+        <button type="button" class="col btn btn-primary" [disabled]="fo.invalid" (click)="login()">Login</button>
         </div>
     </div>
   </div>
@@ -133,7 +133,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h2 class="modal-title" id="exampleModalLabel">Register</h2>
+        <h2 class="modal-title" id="exampleModalLabel">Registeration</h2>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -144,48 +144,49 @@
           <form #f="ngForm">
 
               <div class="form-group">
-                  <label for="FirstName">FirstName</label>
-                  <input type="text" class="form-control" id="FirstName" placeholder="FirstName" #firstname="ngModel" name="firstName" required
+                  <label for="FirstName">First Name <span class="required">*</span></label>
+                  <input type="text" class="form-control" id="FirstName" placeholder="First Name" #firstname="ngModel" name="firstName" required
                    [(ngModel)]="profileRequest.user.firstName">
                 </div>
                 <small></small>
                 <div class="alert alert-danger" *ngIf="firstname.invalid && firstname.touched">First Name is Required</div>
 
                 <div class="form-group">
-                  <label for="exampleInputPassword1">LastName</label>
-                  <input type="text" class="form-control" id="lastName" #lastname="ngModel" name="lastName" placeholder="LastName" required [(ngModel)]="profileRequest.user.lastName">
+                  <label for="exampleInputPassword1">Last Name <span class="required">*</span></label>
+                  <input type="text" class="form-control" id="lastName" #lastname="ngModel" name="lastName" placeholder="Last Name" required [(ngModel)]="profileRequest.user.lastName">
                 </div>
                 <small></small>
                 <div class="alert alert-danger" *ngIf="lastname.invalid && lastname.touched">Last Name is Required</div>
 
               <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" #email="ngModel" name="email" placeholder="Enter email" required email
-                placeholder="Email" [(ngModel)]="profileRequest.user.email">
+                <label for="exampleInputEmail1">Email address <span class="required">*</span></label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" #email="ngModel" name="email" placeholder="Email address" required email
+                 [(ngModel)]="profileRequest.user.email">
                 <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
               </div>
               <small></small>
-              <div class="alert alert-danger" *ngIf="email.errors?.email && email.touched">Your input does not match email format</div>
+              <div class="alert alert-danger" *ngIf="email.errors?.email && email.touched">Invalid Email Address</div>
               <div class="alert alert-danger" *ngIf="email.errors?.required && email.touched">Email is Required</div>
 
               <div class="form-group" >
-                <label for="exampleInputPassword1">Username</label>
-                <input type="text" class="form-control" id="exampleInputloginName1" placeholder="Username" #name="ngModel" name="username" required [(ngModel)]="profileRequest.user.loginName">
+                <label for="exampleInputPassword1">User name <span class="required">*</span></label>
+                <input type="text" class="form-control" id="exampleInputloginName1" placeholder="User Name" #name="ngModel" name="username" required [(ngModel)]="profileRequest.user.loginName">
               </div>
               <small></small>
               <div class="alert alert-danger" *ngIf="name.invalid && name.touched">User Name is Required</div>
 
               <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
+                <label for="exampleInputPassword1">Password <span class="required">*</span> </label>
                 <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" #password="ngModel" minlength="8" name="loginPassword" required [(ngModel)]="profileRequest.user.loginPassword">
+                <small class="form-text text-muted">Password should be 8 characters</small>
               </div>
               <small></small>
               <div class="alert alert-danger" *ngIf="password.errors?.required && password.touched">PassWord is Required</div>
               <div class="alert alert-danger" *ngIf="password.errors?.minlength && password.touched">PassWord should be 8 characters</div>
 
               <div class="form-group">
-                <label for="exampleInputPassword1">ConfirmPassword</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="ConfirmPassword" #confirmpassword="ngModel"  name="confirmpassword" required [(ngModel)]="confirmPassword">
+                <label for="exampleInputPassword1">Confirm Password <span class="required">*</span></label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Confirm Password" #confirmpassword="ngModel"  name="confirmpassword" required [(ngModel)]="confirmPassword">
               </div>
               <small></small>
               <div class="alert alert-danger" *ngIf="confirmpassword.invalid && confirmpassword.touched">ConfirmPassWord is Required</div>
@@ -193,10 +194,15 @@
             </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="col btn btn-secondary" data-dismiss="modal" id="close-login-button">Close</button>
+        <button type="button" class="col btn btn-secondary" data-dismiss="modal" id="close-signup-button">Close</button>
         <button type="button" class="col btn btn-success" [disabled]="f.invalid" (click)="register()" >Sign Up</button>
       </div>
     </div>
   </div>
 </div >
 
+<style>
+  .required {
+    color: red;
+  }
+</style>

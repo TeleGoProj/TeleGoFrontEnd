@@ -67,7 +67,7 @@ this.registService.register(this.profileRequest).subscribe(
   (data)=>{
     this.isRegister=true;
     this.router.navigate(['user' ,'profile'],{queryParams: {id : data.user.userId}})
-    document.getElementById("close-login-button").click();
+    document.getElementById("close-signup-button").click();
 }
 );
 }

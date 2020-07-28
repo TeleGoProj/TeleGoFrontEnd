@@ -26,6 +26,7 @@ import { FeaturesComponent } from './components/user-profile/features/features.c
 import { AboutMeComponent } from './components/user-profile/about-me/about-me.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { SearchResultComponent } from './search-result/search-result.component';
+import { AdminLookupAreaComponent } from './admin/lookups/admin-lookup-area/admin-lookup-area.component';
 
 
 // AoT requires an exported function for factories
@@ -53,7 +54,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     FeaturesComponent,
     AboutMeComponent,
     UserProfileComponent,
-    SearchResultComponent
+    SearchResultComponent,
+    AdminLookupAreaComponent
     
   ],
   imports: [

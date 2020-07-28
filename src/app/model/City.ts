@@ -12,7 +12,7 @@ export class City {
   markedAsDeleted = false;
   markedAsEditingNow = false;
 
-  tempEditingCountry: City;
+  tempEditingCountry: Country;
   tempEditingCity : City;
 
   country: Country;
