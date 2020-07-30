@@ -3,6 +3,8 @@ import { AdminLookupsResponse } from './../../../../model/response/AdminLookupsR
 import { Country } from './../../../../model/Country';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { Area} from './../../../../model/Area';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-admin-lookup',
@@ -13,6 +15,7 @@ export class AdminLookupComponent implements OnInit {
 
   countries = new Array<Country>();
   cities	= new Array<City> ();
+   areas = new Array<Area>();
 
   constructor(private route: ActivatedRoute) { }
 
@@ -20,5 +23,6 @@ export class AdminLookupComponent implements OnInit {
     const adminLookupsResponse = this.route.snapshot.data.adminLookupsResponse;
     this.countries = adminLookupsResponse.countries;
     this.cities = adminLookupsResponse.cities;
+    this.areas = adminLookupsResponse.areas;
   }
 }

@@ -30,4 +30,12 @@ export class Area {
         
         return area;
       }
+
+
+      clone(source: Area) {
+        this.areaId = source.areaId;
+        this.nameEn = source.nameEn;
+        this.nameAr = source.nameAr;
+
+      }
 }

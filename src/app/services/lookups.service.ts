@@ -7,6 +7,7 @@ import {map} from 'rxjs/operators';
 import { Country } from '../model/Country';
 import { City } from '../model/City';
 import { AdminLookupsRequest } from '../model/request/AdminLookupsRequest';
+import { Area } from '../model/Area';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +34,16 @@ export class LookupsService {
     );
   }
 
+  getAreasByCityId(cityId: number): Observable<AdminLookupsResponse> {
+    return this.http.get<AdminLookupsResponse>(environment.restUrl + '/api/admin/get-areas-by-city-id/' + cityId).
+    pipe(
+      map(data => {
+        return AdminLookupsResponse.fromHttp(data);
+      })
+    );
+  }
+
+
   processCountries(countries: Array<Country>, deletedCountries: Array<Country>): Observable<AdminLookupsResponse> {
     const adminLookupsRequest = new AdminLookupsRequest();
     adminLookupsRequest.countries = countries;
@@ -51,4 +62,18 @@ export class LookupsService {
       })
     );
   }
+
+  processAreas(areas: Array<Area>, deletedAreas: Array<Area>): Observable<AdminLookupsResponse> {
+    const adminLookupsRequest = new AdminLookupsRequest();
+    adminLookupsRequest.areas = areas;
+    adminLookupsRequest.deletedAreas = deletedAreas;
+    return this.http.put<AdminLookupsResponse>(environment.restUrl + '/api/admin/process-areas', adminLookupsRequest).
+    pipe(
+      map(data => {
+        return AdminLookupsResponse.fromHttp(data);
+      })
+    );
+  }
+
+
 }

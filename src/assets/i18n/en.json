@@ -52,6 +52,9 @@
     "CHOOSE_COUNTRY": "Choose Country",
     "CITY_LOOKUP": "City Lookup",
     "CITY_MANAGEMENT": "City Management",
+    "CHOOSE_CITY": "choose city",
+    "AREA_LOOKUP":"Area Lookup",
+    "AREA_MANAGEMENT":"Area Management",
     "ADD_EDIT_DELETE": "Add, edit and delete"
   },
   "PROFILE":{

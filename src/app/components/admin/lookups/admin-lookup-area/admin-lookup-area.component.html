@@ -1,1 +1,84 @@
-<p>admin-lookup-area works!</p>
+<div class="spinner-grow text-light" role="status" [hidden]="!serverIsProcessing">
+    <span class="sr-only">Loading...</span>
+  </div>
+
+  <section>
+    <div class="container">
+        <div class="row">
+            <div class="card col col-lg-12">
+              <h5 class="card-header">{{'LOOKUPS.AREA_LOOKUP' | translate}}</h5>
+              <div class="card-body">
+                <h5 class="card-title">{{'LOOKUPS.AREA_MANAGEMENT' | translate}}</h5>
+                <p class="card-text">{{'LOOKUPS.ADD_EDIT_DELETE' | translate}}</p>
+                <div class="pt-3"></div>
+
+                <button class="btn btn-secondary" (click)="addRow()" [disabled]="!selectedCity">
+                  <i class="fa fa-plus"></i>
+                </button>
+                <button class="btn btn-success mx-5" (click)="submitAllAreas()" [disabled]="numberOfUnderEditAreas!=0 || !selectedCity">
+                    <i class="fa fa-check" *ngIf="!serverIsProcessing"></i>
+                    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="serverIsProcessing"></span>
+                  </button>
+                  <div ngbDropdown class="d-inline-block">
+                    <button class="btn btn-outline-primary" id="chooseCityForAreaButton" ngbDropdownToggle *ngIf="!selectedCity">{{'LOOKUPS.CHOOSE_CITY' | translate}}</button>
+                    <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle *ngIf="selectedCity">{{selectedCity.nameEn}}</button>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                      <button ngbDropdownItem  *ngFor="let city of cities"  (click) = "getAreasOfCity(city)"> {{city.nameEn}} </button>
+                      </div>
+                  </div>
+
+                <div class="pt-3" [hidden]="!message"></div>
+                <ngb-alert *ngIf="message" [type]="alertType" (close)="message = null">{{ message }}</ngb-alert>
+
+                <div class="pt-3"></div>
+
+                <table id="areas-table" class="table table-striped table-hover table-responsive-lg">
+                    <thead>
+                        <tr>
+                            <th class="th-sm">{{'GENERAL.ENGLISH_NAME' | translate}}</th>
+                            <th class="th-sm">{{'GENERAL.ARABIC_NAME' | translate}}</th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      <div class="py-3"></div>
+                        <tr *ngFor="let area of areas | paginate: areasPaination.page : areasPaination" [@fadeInOut]>
+                            <td>
+                                <span [hidden]="area.markedAsEditingNow">{{area.nameEn}}</span>
+                                <input type="text" [hidden]="!area.markedAsEditingNow"      [(ngModel)]="area.tempEditingArea.nameEn"
+                                class="form-control" [@fadeInOut] required #nameEn="ngModel"/>
+                                <div *ngIf="nameEn.errors?.required && nameEn.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
+                              </td>
+                              <td>
+                                <span [hidden]="area.markedAsEditingNow">{{area.nameAr}}</span>
+                                <input type="text"  [hidden]="!area.markedAsEditingNow" [(ngModel)]="area.tempEditingArea.nameAr"
+                                class="form-control" [@fadeInOut] required #nameAr="ngModel"/>
+                                <div *ngIf="nameAr.errors?.required && nameAr.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
+                              </td>
+
+                               <td>
+                                <i class="fas fa-pencil-alt" id="dd" aria-hidden="true" style="cursor:pointer;" (click)="editArea(area)"></i>
+                            </td>
+                            <td>
+                                <i class="fa fa-check" aria-hidden="true" style="cursor:pointer;" (click)="applyEditedArea(area)"></i>
+                              </td>
+                              <td>
+                                <i class="fa fa-trash" aria-hidden="true" style="cursor:pointer;" (click)="deleteArea(area)"></i>
+                              </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <app-pagination [collection]="areas" #areasPaination></app-pagination>
+
+
+              </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="pt-5"></div>
+

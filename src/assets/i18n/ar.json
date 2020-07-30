@@ -50,8 +50,11 @@
   },
   "LOOKUPS":{
     "CHOOSE_COUNTRY": "اختر الدولة",
+    "CHOOSE_CITY": "اختر المدينة",
     "CITY_LOOKUP": "إختيارات المدينة",
+    "AREA_LOOKUP":"إختيارات المنطقة",
     "CITY_MANAGEMENT": "إدارة المدن",
+    "AREA_MANAGEMENT":"إدارة المنطقة",
     "ADD_EDIT_DELETE": "اضف او عدل او امسح"
   },
   "PROFILE":{
