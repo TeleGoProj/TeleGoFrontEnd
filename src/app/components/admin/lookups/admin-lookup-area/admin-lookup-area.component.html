@@ -46,16 +46,16 @@
                       <div class="py-3"></div>
                         <tr *ngFor="let area of areas | paginate: areasPaination.page : areasPaination" [@fadeInOut]>
                             <td>
-                                <span [hidden]="area.markedAsEditingNow">{{area.nameEn}}</span>
-                                <input type="text" [hidden]="!area.markedAsEditingNow"      [(ngModel)]="area.tempEditingArea.nameEn"
-                                class="form-control" [@fadeInOut] required #nameEn="ngModel"/>
-                                <div *ngIf="nameEn.errors?.required && nameEn.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
+                                <span [hidden]="area.markedAsEditingNow">{{area.areaNameEn}}</span>
+                                <input type="text" [hidden]="!area.markedAsEditingNow"      [(ngModel)]="area.tempEditingArea.areaNameEn"
+                                class="form-control" [@fadeInOut] required #areaNameEn="ngModel"/>
+                                <div *ngIf="areaNameEn.errors?.required && areaNameEn.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
                               </td>
                               <td>
-                                <span [hidden]="area.markedAsEditingNow">{{area.nameAr}}</span>
-                                <input type="text"  [hidden]="!area.markedAsEditingNow" [(ngModel)]="area.tempEditingArea.nameAr"
-                                class="form-control" [@fadeInOut] required #nameAr="ngModel"/>
-                                <div *ngIf="nameAr.errors?.required && nameAr.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
+                                <span [hidden]="area.markedAsEditingNow">{{area.areaNameAr}}</span>
+                                <input type="text"  [hidden]="!area.markedAsEditingNow" [(ngModel)]="area.tempEditingArea.areaNameAr"
+                                class="form-control" [@fadeInOut] required #areaNameAr="ngModel"/>
+                                <div *ngIf="areaNameAr.errors?.required && areaNameAr.touched" class="alert alert-danger">{{'VALIDATIONS.REQUIRED' | translate}}</div>
                               </td>
 
                                <td>

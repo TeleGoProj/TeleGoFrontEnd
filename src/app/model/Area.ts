@@ -2,8 +2,8 @@ import { City } from './City';
 
 export class Area {
     areaId: number;
-    nameEn: string;
-    nameAr: string;
+    areaNameEn: string;
+    areaNameAr: string;
 
     markedAsDeleted = false;
     markedAsEditingNow = false;
@@ -22,8 +22,8 @@ export class Area {
         return area;
          
         area.areaId= httpResponse.areaId;
-        area.nameAr= httpResponse.nameAr;
-        area.nameEn=httpResponse.nameEn;
+        area.areaNameAr= httpResponse.areaNameAr;
+        area.areaNameEn=httpResponse.areaNameEn;
         area.tempEditingArea = new Area();
         area.city = City.fromHttp(httpResponse.city);
         
@@ -34,8 +34,8 @@ export class Area {
 
       clone(source: Area) {
         this.areaId = source.areaId;
-        this.nameEn = source.nameEn;
-        this.nameAr = source.nameAr;
+        this.areaNameEn = source.areaNameEn;
+        this.areaNameAr = source.areaNameAr;
 
       }
 }

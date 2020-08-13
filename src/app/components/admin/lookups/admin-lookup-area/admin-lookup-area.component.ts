@@ -136,7 +136,7 @@ export class AdminLookupAreaComponent implements OnInit {
     }
 
     isValidArea(checkedArea: Area): boolean{
-      if (checkedArea && checkedArea.nameEn && checkedArea.nameAr ) {
+      if (checkedArea && checkedArea.areaNameEn && checkedArea.areaNameAr ) {
         return true;
       }
       return false;
