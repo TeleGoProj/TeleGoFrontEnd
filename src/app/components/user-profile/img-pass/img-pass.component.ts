@@ -23,7 +23,7 @@ export class ImgPassComponent implements OnInit {
 
   ngOnInit() {
     if(this.profileRequest.user.image)
-    this.profileImage = 'data:image/jpeg;base64,' + this.profileRequest.user.image ;
+      this.loadImage(this.profileRequest.user.image)
   }
 
   onFileSelected(event) {
@@ -38,5 +38,9 @@ export class ImgPassComponent implements OnInit {
       this.profileImage = reader.result; 
       this.profileRequest.imageUpdated = true;
     }
+  }
+
+  loadImage(image: any){
+    this.profileImage = 'data:image/jpeg;base64,' + image ;
   }
 }

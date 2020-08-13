@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { PhoneUser } from 'src/app/model/PhoneUser';
 import { ActivatedRoute } from '@angular/router';
 import { ProfileService } from 'src/app/services/profile.service';
@@ -11,6 +11,7 @@ import { Cabin } from 'src/app/model/Cabin';
 import { Area } from 'src/app/model/Area';
 import { City } from 'src/app/model/City';
 import { Country } from 'src/app/model/Country';
+import { ImgPassComponent } from './img-pass/img-pass.component';
 
 @Component({
   selector: 'app-user-profile',
@@ -24,6 +25,7 @@ export class UserProfileComponent implements OnInit {
   alertType = '';
   serverIsProcessing = false;
   alert = new Subject<string>();
+  @ViewChild(ImgPassComponent, { static: false }) imagePass: ImgPassComponent;
 
   constructor(private route: ActivatedRoute, private profileService: ProfileService, private translate: TranslateService) { 
   }
@@ -35,7 +37,8 @@ export class UserProfileComponent implements OnInit {
         this.profileService.getProfileData(id).subscribe(
           (profileResponse)=>{
             if(profileResponse && profileResponse.user){
-              this.profileRequest = this.createProfileRequestFromUser(profileResponse.user)
+              this.profileRequest = this.createProfileRequestFromUser(profileResponse.user);
+              this.imagePass.loadImage(profileResponse.user.image);
             }
           }
         );
